@@ -1,0 +1,3 @@
+add interface for events: Event
+make the event service gather data through http
+implement rxjs observables for all appropriate places
