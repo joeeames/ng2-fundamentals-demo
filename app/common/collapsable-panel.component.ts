@@ -1,13 +1,12 @@
-import { Component, Input } from '@angular/core';
-import {RouterLink} from '@angular/router-deprecated'
+import { Component } from '@angular/core';
 
 
 @Component({
-  selector: 'event-thumbnail',
+  selector: 'collapsable-panel',
   template:`
 <div class="well hoverwell thumbnail" [routerLink]="['Event', {id: event.id}]">
   <h2>{{event.name}}</h2>
-    <span style="font-weight: bold">Date:</span>
+    <span>Date:</span>
     <span>{{event.date}}</span><br>
     <span>Time:</span>
     <span>{{event.time}}</span><br>
@@ -17,8 +16,6 @@ import {RouterLink} from '@angular/router-deprecated'
     <span>{{event.location.city}}, {{event.location.country}}</span>
 </div>
   `,
-  directives: [RouterLink]
 })
-export class EventThumbnailComponent {
-  @Input() event: any;
+export class CollapsablePanelComponent {
 }

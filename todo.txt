@@ -1,3 +1,15 @@
-add interface for events: Event
 make the event service gather data through http
 implement rxjs observables for all appropriate places
+hook up nav links
+make active link work
+hook up a search
+move the search box to the right in the nav
+implement durations pipe
+add component-specific css
+implement voting component
+implement collapsable panel
+use some heirarchical injector
+implement tests
+attribute directive ideas:
+  measure weight of something with font-weight?
+  turn some text a certain color when a bool is true (used for voting)

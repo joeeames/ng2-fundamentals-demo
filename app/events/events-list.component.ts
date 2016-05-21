@@ -22,38 +22,10 @@ import { EventService, Event } from './event.service';
 export class EventsListComponent {
   events: Event[];
   
-  constructor() {
-    this.events = EVENTS;
+  constructor(private eventService: EventService) {
   }  
   
   ngOnInit() {
-    
+    this.events = this.eventService.getEvents();
   }
 }
-
-
-// const EVENTS = [
-//       {
-//         id: 1,
-//         name: 'Angular Connect',
-//         date: '9/26/2016',
-//         time: '10:00 am',
-//         imageUrl: '/app/assets/images/angularconnect-shield.png',
-//         location: {
-//           address: '1057 DT',
-//           city: 'Amsterdam',
-//           province: 'England'
-//         }
-//       },
-//       {
-//         id: 2,
-//         name: 'ng-nl',
-//         date: '4/15/2017',
-//         time: '9:00 am',
-//         location: {
-//           address: 'The NL Convention Center',
-//           city: 'London',
-//           province: 'Netherlands'
-//         }
-//       },
-//     ]

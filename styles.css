@@ -1,5 +1,9 @@
 /* app css stylesheet */
 .hoverwell:hover {
-  background-color: #52575c;
+  background-color: #485563;
   cursor: pointer;
+}
+
+.container {
+  padding-top: 10px;
 }
