@@ -1,0 +1,41 @@
+<h1>New Event</h1>
+<hr>
+<form name="newEventForm">
+  <fieldset>
+    <label for="eventName">Event Name:</label>
+    <input id="eventName" type="text" required [(ngModel)]="newEvent.name" 
+        placeholder="Name of your event..." />
+    <label for="eventDate">Event Date:</label>
+    <div style="position:relative">
+        <input id="eventDate" type="text" date-keys required 
+            ng-pattern="/\d\d/\d\d/\d\d\d\d/" [(ngModel)]="newEvent.date" 
+            placeholder="format (mm/dd/yyyy)..." />
+        <!--<date-picker for="eventDate"></date-picker>-->
+    </div>
+    <label for="eventTime">Event Time:</label>
+    <input id="eventTime" type="text" [(ngModel)]="newEvent.time" 
+        placeholder="start and end time..." />
+    <label for="eventLocation">Event Location:</label>
+    <input id="eventLocation" type="text" [(ngModel)]="newEvent.location.address" 
+        placeholder="Address of event..." />
+    <br />
+    <input id="eventCity" type="text" [(ngModel)]="newEvent.location.city" 
+        class="input-small" placeholder="City..." />
+    <input id="eventCountry" type="text" [(ngModel)]="newEvent.location.country" 
+        class="input-small" placeholder="Country..." />
+    <div>{{newEvent.name}}</div>
+    <label for="eventImageUrl">Image:</label>
+    <input id="eventImageUrl" type="url" [(ngModel)]="newEvent.imageUrl" 
+        class="input-xlarge" placeholder="url of image..." />
+  </fieldset>
+
+  <img [src]="newEvent.imageUrl" />
+  <br />
+  <br />
+
+  <button type="submit" ng-disabled="newEventForm.$invalid" 
+      (click)="saveEvent(event, newEventForm)" 
+      class="btn btn-primary">Save</button>
+  <button type="button" (click)="cancelEvent()" 
+      class="btn btn-default">Cancel</button>
+</form>

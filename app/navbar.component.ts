@@ -25,7 +25,7 @@ import { EventService, Event } from './events/event.service';
               <span class="sr-only">(current)</span>
             </a>
           </li>
-          <li><a>Create Event</a></li>
+          <li><a [routerLink]="['Events/CreateEvent']">Create Event</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Events <span class="caret"></span></a>
             <ul class="dropdown-menu">

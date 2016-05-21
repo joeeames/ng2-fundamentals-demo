@@ -1,8 +1,5 @@
 import { Injectable } from '@angular/core';
 
-// interface IEventService {
-//   getEvents: Function => Event[];
-// }
 
 @Injectable()
 export class EventService {
@@ -16,7 +13,7 @@ export class EventService {
   }
 }
 
-export interface Event {
+export interface IEvent {
   id: number;
   name: string;
   date: string;
@@ -30,6 +27,34 @@ export interface Event {
   sessions: Session[]; 
 }
 
+export class Event implements IEvent {
+  id: number;
+  name: string;
+  date: string;
+  time: string;
+  imageUrl: string;
+  location: {
+    address: string;
+    city: string;
+    country: string;
+  }
+  sessions: Session[]; 
+  
+  constructor() {
+    this.id = this.getNewId();
+    this.location = {
+      address: "",
+      city: "",
+      country: ""
+    }
+    
+  }
+  
+  private getNewId() {
+    return 35;
+  }
+}
+
 export interface Session {
   id: number;
   name: string;
@@ -40,7 +65,7 @@ export interface Session {
   voteCount: number;
 }
 
-const EVENTS: Event[] = [
+const EVENTS: IEvent[] = [
       {
         id: 1,
         name: 'Angular Connect',

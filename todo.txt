@@ -1,4 +1,5 @@
 implement create event page
+implement date picker
 make the event service gather data through http
 implement rxjs observables for all appropriate places
 hook up nav links
