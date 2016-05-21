@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { EventService, Event } from './event.service';
+import { EventService, Event, Session } from './event.service';
 import { RouteParams } from '@angular/router-deprecated';
+import { UpvoteComponent } from './upvote.component';
 
 
 @Component({
@@ -47,7 +48,9 @@ import { RouteParams } from '@angular/router-deprecated';
     </select>-->
     <div class="row" *ngFor="let session of event.sessions">
       <div class="col-md-1">
-        <upvote upvote="upVoteSession(session)" downvote="downVoteSession(session)" count="session.upVoteCount"></upvote>
+        <upvote (upVote)="upVoteSession(session)" 
+          (downVote)="downVoteSession(session)" 
+          [count]="session.voteCount"></upvote>
       </div>
       <div class="well col-md-11">
         A Session
@@ -56,22 +59,38 @@ import { RouteParams } from '@angular/router-deprecated';
             <span>Duration: {{session.duration}}</span><br />
             <span>Level: {{session.level}}</span>
 
-            <p [textOverflow]="session.abstract" textLength="10">{{session.abstract}}</p>
+            <p>{{session.abstract}}</p>
         </collapsible>
       </div>
     </div>
   </div>
 
-  `
+  `,
+  directives: [UpvoteComponent]
 })
 export class EventDetailsComponent implements OnInit {
-  // @Input() event: any;
   event: Event;
+  voted: boolean;
   
   constructor(private eventService: EventService,
     private routeParams: RouteParams) {}
   
   ngOnInit() {
     this.event = this.eventService.getEvent(+this.routeParams.get('id'))
+    this.voted = false;
+  }
+  
+  upVoteSession(session: Session) {
+    if(!this.voted) {
+      session.voteCount++;
+      this.voted = true;
+    }
+  }
+  
+  downVoteSession(session: Session) {
+    if(!this.voted && session.voteCount > 0) {
+      session.voteCount--;
+      this.voted = true;
+    }
   }
 }

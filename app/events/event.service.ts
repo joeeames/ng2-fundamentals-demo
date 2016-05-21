@@ -30,7 +30,7 @@ export interface Event {
   sessions: Session[]; 
 }
 
-interface Session {
+export interface Session {
   id: number;
   name: string;
   presenter: string;
@@ -60,7 +60,7 @@ const EVENTS: Event[] = [
             duration: 3,
             level: "Intermediate",
             abstract: "Learn all about Pipes with PBD",
-            voteCount: 0
+            voteCount: 4
           },
           {
             id: 2,
@@ -69,7 +69,7 @@ const EVENTS: Event[] = [
             duration: 4,
             level: "Advanced",
             abstract: "Angular 2 Performance is hot. In this session, we'll see all about it",
-            voteCount: 0
+            voteCount: 7
           }
         ]
       },
