@@ -1,4 +1,5 @@
 implement the add session ability
+switch TS compile back to the main dir, ignore js files with git and have vscode ignore as well
 add price to event data
 implement date picker
 make the event service gather data through http
