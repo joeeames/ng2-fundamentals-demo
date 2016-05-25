@@ -1,8 +1,12 @@
 import { Injectable } from '@angular/core';
-
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { Observable } from 'rxjs/Rx';
+import { IEvent } from './event.service';
 
 @Injectable()
 export class EventService {
+  
+  constructor(private http: Http) {}
   
   getEvents() {
     return EVENTS;
@@ -10,6 +14,24 @@ export class EventService {
   
   getEvent(id: number) {
     return EVENTS.find(event => event.id === id);
+  }
+  
+  createEvent(eventData: any) {
+    let headers = new Headers({ 'Content-Type': 'application/json'});
+    let options = new RequestOptions({headers: headers });
+    
+    var ret = this.http.post("/api/events", JSON.stringify(eventData), options);
+    return ret.map((response: Response) => {
+        var returnedData = response.json();
+        EVENTS.push(returnedData);
+        return returnedData;
+    }).catch(this.handleError);
+    
+  }
+  
+  private handleError(error: Response) {
+    console.error(error);
+    return Observable.throw(error.json().error || "Server Error");
   }
 }
 
@@ -41,17 +63,12 @@ export class Event implements IEvent {
   sessions: Session[]; 
   
   constructor() {
-    this.id = this.getNewId();
     this.location = {
       address: "",
       city: "",
       country: ""
     }
     
-  }
-  
-  private getNewId() {
-    return 35;
   }
 }
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EventThumbnailComponent } from './event-thumbnail.component';
-import { EventService, Event } from './event.service';
+import { EventService, IEvent } from './event.service';
 
 @Component({
   selector: 'events-list',
@@ -20,7 +20,7 @@ import { EventService, Event } from './event.service';
   ]
 })
 export class EventsListComponent {
-  events: Event[];
+  events: IEvent[];
   
   constructor(private eventService: EventService) {
   }  

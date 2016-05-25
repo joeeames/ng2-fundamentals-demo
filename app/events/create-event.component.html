@@ -1,41 +1,60 @@
 <h1>New Event</h1>
 <hr>
-<form name="newEventForm">
-  <fieldset>
-    <label for="eventName">Event Name:</label>
-    <input id="eventName" type="text" required [(ngModel)]="newEvent.name" 
-        placeholder="Name of your event..." />
-    <label for="eventDate">Event Date:</label>
-    <div style="position:relative">
-        <input id="eventDate" type="text" date-keys required 
-            ng-pattern="/\d\d/\d\d/\d\d\d\d/" [(ngModel)]="newEvent.date" 
-            placeholder="format (mm/dd/yyyy)..." />
-        <!--<date-picker for="eventDate"></date-picker>-->
-    </div>
-    <label for="eventTime">Event Time:</label>
-    <input id="eventTime" type="text" [(ngModel)]="newEvent.time" 
-        placeholder="start and end time..." />
-    <label for="eventLocation">Event Location:</label>
-    <input id="eventLocation" type="text" [(ngModel)]="newEvent.location.address" 
-        placeholder="Address of event..." />
-    <br />
-    <input id="eventCity" type="text" [(ngModel)]="newEvent.location.city" 
-        class="input-small" placeholder="City..." />
-    <input id="eventCountry" type="text" [(ngModel)]="newEvent.location.country" 
-        class="input-small" placeholder="Country..." />
-    <div>{{newEvent.name}}</div>
-    <label for="eventImageUrl">Image:</label>
-    <input id="eventImageUrl" type="url" [(ngModel)]="newEvent.imageUrl" 
-        class="input-xlarge" placeholder="url of image..." />
-  </fieldset>
+<div class="col-md-6">
+    <form  autocomplete="off" [ngFormModel]="newEventForm" (ngSubmit)="saveEvent(newEventForm.value)">
+        <div class="form-group" [ngClass]="{ 'has-error' : !name.valid && submitAttempt }">
+            <label for="eventName">Event Name:</label>
+            <em *ngIf="!name.valid && submitAttempt">Required</em>
+            <input id="eventName" type="text" ngControl="name" 
+            class="form-control" placeholder="Name of your event..." />
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error' : !date.valid && submitAttempt }">
+            <label for="eventDate">Event Date:</label>
+            <em *ngIf="!date.valid && submitAttempt">Required</em>
+            <div style="position:relative">
+                <input id="eventDate" type="text" date-keys 
+                    ng-pattern="/\d\d/\d\d/\d\d\d\d/" ngControl="date" 
+                    class="form-control" placeholder="format (mm/dd/yyyy)..." />
+                    <!--<date-picker for="eventDate"></date-picker>-->
+            </div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error' : !time.valid && submitAttempt }">
+            <label for="eventTime">Event Time:</label>
+            <em *ngIf="!time.valid && submitAttempt">Required</em>
+            <input id="eventTime" type="text" ngControl="time" 
+            class="form-control" placeholder="start and end time..." />
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error' : !locationAddress.valid && submitAttempt }">
+            <label for="locationAddress">Event Location:</label>
+            <em *ngIf="!locationAddress.valid && submitAttempt">Required</em>
+            <input id="locationAddress" type="text" ngControl="locationAddress" 
+            class="form-control" placeholder="Address of event..." />
+        </div>
+        <div class="row">
+            <div class="col-md-6" [ngClass]="{ 'has-error' : !locationCity.valid && submitAttempt }">
+                <input id="locationCity" type="text" ngControl="locationCity" 
+                class="form-control" placeholder="City..." />
+            </div>
+            <div class="col-md-6" [ngClass]="{ 'has-error' : !locationCountry.valid && submitAttempt }">
+                <input id="locationCountry" type="text" ngControl="locationCountry" 
+                class="form-control" placeholder="Country..." />
+            </div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error' : !imageUrl.valid && submitAttempt }">
+            <div>{{name.value | json}}</div>
+            <label for="imageUrl">Image:</label>
+            <input id="imageUrl" type="text" ngControl="imageUrl" 
+                class="form-control" placeholder="url of image..." />
+        </div>
 
-  <img [src]="newEvent.imageUrl" />
-  <br />
-  <br />
+        <img *ngIf="imageUrl.value" [src]="imageUrl.value" />
+        <br />
+        <br />
 
-  <button type="submit" ng-disabled="newEventForm.$invalid" 
-      (click)="saveEvent(event, newEventForm)" 
-      class="btn btn-primary">Save</button>
-  <button type="button" (click)="cancelEvent()" 
-      class="btn btn-default">Cancel</button>
-</form>
+        <button type="submit" ng-disabled="newEventForm.$invalid" 
+            
+            class="btn btn-primary">Save</button>
+        <button type="button" (click)="cancelEvent()" 
+            class="btn btn-default">Cancel</button>
+    </form>
+</div>

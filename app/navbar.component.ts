@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { RouterLink } from '@angular/router-deprecated';
-import { EventService, Event } from './events/event.service';
+import { EventService, IEvent } from './events/event.service';
 
 @Component({
   selector: 'nav-bar',
@@ -53,7 +53,7 @@ import { EventService, Event } from './events/event.service';
   ]
 })
 export class NavBarComponent {
-  events: Event[];
+  events: IEvent[];
   
   constructor(private eventService: EventService) {
   } 
