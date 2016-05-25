@@ -4,7 +4,7 @@ add price to event data
 implement date picker
 make the event service gather data through http
 implement rxjs observables for all appropriate places
-make active link work
+make active link work in navbar
 hook up a search
 implement durations pipe
 implement collapsable panel
@@ -15,3 +15,13 @@ attribute directive ideas:
   turn some text a certain color when a bool is true (used for voting)
 make a more robust voting algorithm, maybe add a service
 after creating an event, redirect to event details in session create mode
+eval the a2-in-memory-web-api
+take out the extraneous event interface or class
+remove hardcoded data from client (in event.service.ts)
+look at integrating CLI
+digging into immutable data?
+digging into observable data?
+READ THE STYLE GUIDE
+authentication - JWT
+add sorting of sessions based on votes - discuss pipes
+add filtering of sessions
