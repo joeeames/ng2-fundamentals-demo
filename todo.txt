@@ -1,12 +1,12 @@
 *switch TS compile back to the main dir, ignore js files with git and have vscode ignore as well
-jim - remove hardcoded data from client (in event.service.ts)
-  jim - make the event service gather data through http
+remove hardcoded data from client (in event.service.ts)
+  make the event service gather data through http
 jim - add price to event data
 jim - implement the add session ability
 jim - implement date picker (or something else)
 add sorting of sessions based on votes - discuss pipes
 add filtering of sessions
-jim - implement rxjs observables for all appropriate places
+implement rxjs observables for all appropriate places
 make active link work in navbar
 hook up a search
 jim - implement durations pipe
@@ -19,9 +19,9 @@ attribute directive ideas:
 make a more robust voting algorithm, maybe add a service
 after creating an event, redirect to event details in session create mode
 eval the a2-in-memory-web-api
-take out the extraneous event interface or class
+jim - take out the extraneous event interface or class
 look at integrating CLI
 digging into immutable data?
 digging into observable data?
 READ THE STYLE GUIDE
-authentication - JWT
+jim - authentication - JWT
