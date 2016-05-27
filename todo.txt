@@ -1,7 +1,7 @@
 *switch TS compile back to the main dir, ignore js files with git and have vscode ignore as well
 *remove hardcoded data from client (in event.service.ts)
   make the event service gather data through http
-add sorting of sessions based on votes - discuss pipes
+*add sorting of sessions based on votes - discuss pipes
 jim - add price to event data
 jim - implement the add session ability
 jim - implement date picker (or something else)
