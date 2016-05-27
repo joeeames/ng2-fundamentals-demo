@@ -28,3 +28,4 @@ READ THE STYLE GUIDE
 look at integrating CLI
 implement tests
 jim - authentication - JWT
+Figure out relative paths
