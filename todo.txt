@@ -12,7 +12,6 @@ hook up a search
 jim - implement durations pipe
 implement collapsable panel
 use some heirarchical injector
-implement tests
 attribute directive ideas:
   measure weight of something with font-weight?
   turn some text a certain color when a bool is true (used for voting)
@@ -20,8 +19,11 @@ make a more robust voting algorithm, maybe add a service
 after creating an event, redirect to event details in session create mode
 eval the a2-in-memory-web-api
 take out the extraneous event interface or class
-look at integrating CLI
 digging into immutable data?
 digging into observable data?
+covering lifecycle events?
+cover trackby and index in ngFor
 READ THE STYLE GUIDE
 authentication - JWT
+look at integrating CLI
+implement tests

@@ -4,7 +4,15 @@ var events = require('../database/events'),
 var nextId = getNextId(events);
 
 exports.getEvents = function(req, res) {
+  console.log('sending events');
   res.send(events);
+}
+
+exports.getEvent = function(req, res) {
+  console.log('event id', req.params.eventId);
+  var event = events.find(event => event.id === +req.params.eventId);
+  console.log('event', event);
+  res.send(event);
 }
 
 // exports.getSessionsByUser = function(req, res) {

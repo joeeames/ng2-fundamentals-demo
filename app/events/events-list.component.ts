@@ -26,6 +26,9 @@ export class EventsListComponent {
   }  
   
   ngOnInit() {
-    this.events = this.eventService.getEvents();
+    this.eventService.getEvents().subscribe(events => {
+      console.log('events', events);
+      this.events = events;
+    })
   }
 }

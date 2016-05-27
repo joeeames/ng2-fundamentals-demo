@@ -1,23 +1,23 @@
 <div ng-controller="EventController" style="padding-left:20px; padding-right:20px">
-  <img [src]="event.imageUrl" [alt]="event.name">
+  <img [src]="event?.imageUrl" [alt]="event?.name">
 
   <div class="row">
     <div class="span11">
-      <h2>{{event.name | uppercase}} </h2>
+      <h2>{{event?.name | uppercase}} </h2>
     </div>
   </div>
 
   <div class="row">
     <div class="col-md-6">
-      <div><strong>Date:</strong> {{event.date}}</div>
-      <div><strong>Time:</strong> {{event.time}}</div>
+      <div><strong>Date:</strong> {{event?.date}}</div>
+      <div><strong>Time:</strong> {{event?.time}}</div>
       <div><strong>Price:</strong> {{499 | currency:"USD":true}}</div>
     </div>
     <div class="col-md-6">
       <address>
         <strong>Address:</strong><br />
-        {{event.location.address}}<br />
-        {{event.location.city}}, {{event.location.country}}
+        {{event?.location?.address}}<br />
+        {{event?.location?.city}}, {{event?.location?.country}}
       </address>
     </div>
   </div>
@@ -37,7 +37,7 @@
     <option value="intermediate" >Intermediate</option>
     <option value="advanced" >Advanced</option>
   </select>-->
-  <div class="row" *ngFor="let session of event.sessions">
+  <div class="row" *ngFor="let session of event?.sessions">
     <div class="col-md-1">
       <upvote (upVote)="upVoteSession(session)" 
         (downVote)="downVoteSession(session)" 

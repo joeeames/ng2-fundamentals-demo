@@ -12,6 +12,7 @@ module.exports = function(app) {
   app.get('/api/currentIdentity', auth.getCurrentIdentity);
   
   app.get('/api/events', events.getEvents);
+  app.get('/api/events/:eventId', events.getEvent);
   app.post('/api/events', events.createEvent);
   
   // app.get('/api/sessions', sessions.getSessions);
