@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { EventService, IEvent, Session } from './event.service';
+import { EventService, Event, Session } from './shared/shared';
 import { RouteParams } from '@angular/router-deprecated';
 import { UpvoteComponent } from './upvote.component';
 
@@ -10,7 +10,7 @@ import { UpvoteComponent } from './upvote.component';
   directives: [UpvoteComponent]
 })
 export class EventDetailsComponent implements OnInit {
-  event: IEvent;
+  event: Event;
   voted: boolean;
   sortedByName: boolean;
   sortedByVote: boolean;
