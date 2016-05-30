@@ -21,6 +21,7 @@ export class CreateEventComponent implements OnInit {
   name: Control;
   date: Control;
   time: Control;
+  price: Control;
   locationAddress: Control;
   locationCity: Control;
   locationCountry: Control;
@@ -31,6 +32,7 @@ export class CreateEventComponent implements OnInit {
     this.name = new Control('', Validators.required);
     this.date = new Control('', Validators.required);
     this.time = new Control('', Validators.required);
+    this.price = new Control('', Validators.required)
     this.locationAddress = new Control('', Validators.required);
     this.locationCity = new Control('', Validators.required);
     this.locationCountry = new Control('', Validators.required);
@@ -41,6 +43,7 @@ export class CreateEventComponent implements OnInit {
       name: this.name,
       date: this.date,
       time: this.time,
+      price: this.price,
       // location: builder.group({
       locationAddress: this.locationAddress,
       locationCity: this.locationCity,
@@ -62,6 +65,7 @@ export class CreateEventComponent implements OnInit {
         name: formValues.name,
         date: formValues.date,
         time: formValues.time,
+        price: formValues.price,
         location: {
           address: formValues.locationAddress,
           city: formValues.locationCity,

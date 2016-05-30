@@ -3,6 +3,7 @@ export class Event {
   name: string;
   date: string;
   time: string;
+  price: number;
   imageUrl: string;
   location: {
     address: string;

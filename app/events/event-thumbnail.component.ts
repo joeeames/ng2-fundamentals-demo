@@ -11,6 +11,8 @@ import {RouterLink} from '@angular/router-deprecated'
     <span>{{event.date}}</span><br>
     <span>Time:</span>
     <span>{{event.time}}</span><br>
+    <span>Price:</span>
+    <span>{{event.price | currency:'USD':true}}</span><br>
     <span>Location:</span>
     <span>{{event.location.address}}</span>
     <span>&nbsp;</span>

@@ -5,6 +5,7 @@ var events = [
     name: 'Angular Connect',
     date: '9/26/2016',
     time: '10:00 am',
+    price: 299.99,
     imageUrl: '/app/assets/images/angularconnect-shield.png',
     location: {
       address: '1057 DT',
@@ -55,6 +56,7 @@ var events = [
     name: 'ng-nl',
     date: '4/15/2017',
     time: '9:00 am',
+    price: 950.00,
     imageUrl: '/app/assets/images/ng-nl.png',
     location: {
       address: 'The NL Convention Center',

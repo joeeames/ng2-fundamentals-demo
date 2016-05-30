@@ -24,6 +24,12 @@
             <input id="eventTime" type="text" ngControl="time" 
             class="form-control" placeholder="start and end time..." />
         </div>
+        <div class="form-group" [ngClass]="{ 'has-error' : !price.valid && submitAttempt }">
+            <label for="eventPrice">Event Price:</label>
+            <em *ngIf="!price.valid && submitAttempt">Required</em>
+            <input id="eventPrice" type="text" ngControl="price" 
+            class="form-control" placeholder="event price..." />
+        </div>
         <div class="form-group" [ngClass]="{ 'has-error' : !locationAddress.valid && submitAttempt }">
             <label for="locationAddress">Event Location:</label>
             <em *ngIf="!locationAddress.valid && submitAttempt">Required</em>
