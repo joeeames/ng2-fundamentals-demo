@@ -65,7 +65,7 @@ export class CreateEventComponent implements OnInit {
         name: formValues.name,
         date: formValues.date,
         time: formValues.time,
-        price: formValues.price,
+        price: +formValues.price,
         location: {
           address: formValues.locationAddress,
           city: formValues.locationCity,

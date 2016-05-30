@@ -1,0 +1,1 @@
+I had to cast price to a number when saving it using `+`. Is there a way for typescript to take care of this for me? Casting the object to <Event> as it is created didn't seem to help (not surprising).
