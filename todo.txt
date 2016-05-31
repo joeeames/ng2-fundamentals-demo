@@ -2,15 +2,15 @@
 *remove hardcoded data from client (in event.service.ts)
   make the event service gather data through http
 *add sorting of sessions based on votes - discuss pipes
+*add filtering of sessions
 *add price to event data
 jim - implement the add session ability
 jim - implement date picker (or something else)
-add filtering of sessions
 implement rxjs observables for all appropriate places
 make active link work in navbar
 hook up a search
 jim - implement durations pipe
-implement collapsable panel
+joe - implement collapsable panel
 use some heirarchical injector
 attribute directive ideas:
   measure weight of something with font-weight?
