@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
 import { EventService, Event } from './shared/shared';
 
-
 @Component({
   moduleId: module.id,
   selector: 'upvote',
