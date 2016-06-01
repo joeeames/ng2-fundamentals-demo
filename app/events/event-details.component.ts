@@ -26,7 +26,6 @@ export class EventDetailsComponent implements OnInit {
         this.event = event;
         this.filterSessions('all');
         this.sortByName();
-        
       })
     this.voted = false;
   }

@@ -2,7 +2,7 @@
   <img [src]="event?.imageUrl" [alt]="event?.name">
 
   <div class="row">
-    <div class="span11">
+    <div class="col-md-11">
       <h2>{{event?.name | uppercase}} </h2>
     </div>
   </div>
@@ -22,23 +22,28 @@
     </div>
   </div>
 
-  <hr>
+  <hr/>
 
-  <h3>Sessions
-      <div class="btn-group btn-group-sm" style="margin-right:20px; margin-left:20px">
-        <button class="btn btn-default" [ngClass]="{active: sortedByName}" (click)="sortByName()">By Name</button>
-        <button class="btn btn-default" [ngClass]="{active: sortedByVote}" (click)="sortByVoteCount()">By Votes</button>
-      </div>
-      
-      <div class="btn-group btn-group-sm">
-        <button class="btn btn-default" [ngClass]="{active: isActiveFilter('all')}" (click)="filterSessions('all')">All</button>
-        <button class="btn btn-default" [ngClass]="{active: isActiveFilter('beginner')}" (click)="filterSessions('beginner')">Beginner</button>
-        <button class="btn btn-default" [ngClass]="{active: isActiveFilter('intermediate')}" (click)="filterSessions('intermediate')">Intermediate</button>
-        <button class="btn btn-default" [ngClass]="{active: isActiveFilter('advanced')}" (click)="filterSessions('advanced')">Advanced</button>
-      </div>
-    
-  </h3>
-
+  <div class="row">
+    <div class="col-md-2">
+      <h3 style="margin:0">Sessions</h3>
+    </div>
+    <div class="col-md-8">
+        <div class="btn-group btn-group-sm" style="margin-right:20px; margin-left:20px">
+          <button class="btn btn-default" [ngClass]="{active: sortedByName}" (click)="sortByName()">By Name</button>
+          <button class="btn btn-default" [ngClass]="{active: sortedByVote}" (click)="sortByVoteCount()">By Votes</button>
+        </div>
+        
+        <div class="btn-group btn-group-sm">
+          <button class="btn btn-default" [ngClass]="{active: isActiveFilter('all')}" (click)="filterSessions('all')">All</button>
+          <button class="btn btn-default" [ngClass]="{active: isActiveFilter('beginner')}" (click)="filterSessions('beginner')">Beginner</button>
+          <button class="btn btn-default" [ngClass]="{active: isActiveFilter('intermediate')}" (click)="filterSessions('intermediate')">Intermediate</button>
+          <button class="btn btn-default" [ngClass]="{active: isActiveFilter('advanced')}" (click)="filterSessions('advanced')">Advanced</button>
+        </div>
+    </div>
+    <div class="col-md-2">
+      <a href="#">Add Session</a>
+  </div>
   
   <br>
   <br>
@@ -55,7 +60,7 @@
         (downVote)="downVoteSession(session)" 
         [count]="session.voteCount"></upvote>
     </div>
-    <div class="well col-md-11">
+    <div class="well col-md-10" style="margin-left:10px;">
       {{session.name}}
       <collapsible title="{{session.name}}">
           <h6 style="margin-top:-10px">{{session.creatorName}}</h6>
