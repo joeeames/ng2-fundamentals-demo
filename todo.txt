@@ -4,19 +4,21 @@
 *add sorting of sessions based on votes - discuss pipes
 *add filtering of sessions
 *add price to event data
+*implement collapsable panel
 jim - implement the add session ability
+jim - after creating an event, redirect to event details in session create mode
 jim - implement date picker (or something else)
-implement rxjs observables for all appropriate places
-make active link work in navbar
-hook up a search
+joe - make active link work in navbar
+joe - hook up a search
+joe - make voting only upvote and remove
 jim - implement durations pipe
-joe - implement collapsable panel
+
+later:
 use some heirarchical injector
 attribute directive ideas:
   measure weight of something with font-weight?
   turn some text a certain color when a bool is true (used for voting)
 make a more robust voting algorithm, maybe add a service
-after creating an event, redirect to event details in session create mode
 eval the a2-in-memory-web-api
 jim - take out the extraneous event interface or class
 look at integrating CLI

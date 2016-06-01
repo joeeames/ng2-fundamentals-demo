@@ -2,12 +2,14 @@ import { Component, Input, OnInit } from '@angular/core';
 import { EventService, Event, Session } from './shared/shared';
 import { RouteParams } from '@angular/router-deprecated';
 import { UpvoteComponent } from './upvote.component';
+import { CollapsibleWellComponent } from '../common/collapsible-well.component';
 
 @Component({
   moduleId: module.id,
   selector: 'event-details',
   templateUrl: 'event-details.component.html',
-  directives: [UpvoteComponent]
+  styles: ['collapsible-panel > h6 {margin-top:-5px; margin-bottom:10px }'],
+  directives: [UpvoteComponent, CollapsibleWellComponent]
 })
 export class EventDetailsComponent implements OnInit {
   event: Event;

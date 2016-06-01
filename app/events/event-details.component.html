@@ -55,15 +55,14 @@
         (downVote)="downVoteSession(session)" 
         [count]="session.voteCount"></upvote>
     </div>
-    <div class="well col-md-11">
-      {{session.name}}
-      <collapsible title="{{session.name}}">
-          <h6 style="margin-top:-10px">{{session.creatorName}}</h6>
+    <div class="col-md-11">
+      <collapsible-well [title]="session.name">
+          <h6>{{session.presenter}}</h6>
           <span>Duration: {{session.duration}}</span><br />
           <span>Level: {{session.level}}</span>
 
           <p>{{session.abstract}}</p>
-      </collapsible>
+      </collapsible-well>
     </div>
   </div>
 </div>
