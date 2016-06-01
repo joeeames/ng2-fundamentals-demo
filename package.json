@@ -10,7 +10,7 @@
     "lite": "lite-server",
     "server": "node ./server/server.js",
     "dev": "nodemon ./server/server.js -w ./server",
-    // "postinstall": "typings install",
+    "rem_postinstall": "typings install",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
     "typings": "typings"
