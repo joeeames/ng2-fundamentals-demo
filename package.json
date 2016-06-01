@@ -1,6 +1,10 @@
 {
   "name": "angular2-quickstart",
   "version": "1.0.0",
+  "engines": {
+    "node": "5.9.1"
+  },
+  "main": "server/server.js",
   "scripts": {
     "start": "tsc && concurrently \"npm run tsc:w\" \"npm run server\" ",
     "lite": "lite-server",
