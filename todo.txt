@@ -20,7 +20,7 @@ attribute directive ideas:
   turn some text a certain color when a bool is true (used for voting)
 make a more robust voting algorithm, maybe add a service
 eval the a2-in-memory-web-api
-jim - take out the extraneous event interface or class
+*take out the extraneous event interface or class
 look at integrating CLI
 digging into immutable data?
 digging into observable data?
