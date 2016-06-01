@@ -38,7 +38,7 @@ var events = [
         duration: 4,
         level: "Advanced",
         abstract: "Angular 2 Performance is hot. In this session, we'll see all about it",
-        voteCount: 2
+        voteCount: 0
       },
       {
         id: 4,

@@ -5,13 +5,17 @@
 *add filtering of sessions
 *add price to event data
 *implement collapsable panel
+*rework sorting & filtering in details page to use [class.active] instead of ngClass
 jim - implement the add session ability
 jim - after creating an event, redirect to event details in session create mode
 jim - implement date picker (or something else)
-joe - make active link work in navbar
+jim - implement durations pipe
+
 joe - hook up a search
 joe - make voting only upvote and remove
-jim - implement durations pipe
+add profile page
+add more sample data
+add authentication
 
 later:
 use some heirarchical injector
@@ -29,5 +33,5 @@ cover trackby and index in ngFor
 READ THE STYLE GUIDE
 look at integrating CLI
 implement tests
+make active link work in navbar
 jim - authentication - JWT
-Figure out relative paths

@@ -14,10 +14,9 @@ import { CollapsibleWellComponent } from '../common/collapsible-well.component';
 export class EventDetailsComponent implements OnInit {
   event: Event;
   voted: boolean;
-  sortedByName: boolean;
-  sortedByVote: boolean;
   visibleSessions: Session[] = [];
   activeFilter: string;
+  activeSort: string;
   
   constructor(private eventService: EventService,
     private routeParams: RouteParams) {}
@@ -32,18 +31,27 @@ export class EventDetailsComponent implements OnInit {
     this.voted = false;
   }
   
+  isFiltered(filterType) {
+    return this.activeFilter === filterType; 
+  }
+  
+  isSorted(sortType) {
+    return this.activeSort === sortType; 
+  }
+  
+  // we can use [ngClass] but we can also use [class.active] which is better in this case
+  
   sortByName() {
     this.visibleSessions.sort(sortByNameAsc);
-    this.sortedByVote = false;
-    this.sortedByName = true;
+    this.activeSort = 'name';
   }
   
   sortByVoteCount() {
     this.visibleSessions.sort(sortByVotesDesc);
-    this.sortedByVote = true;
-    this.sortedByName = false;
+    this.activeSort = 'vote';
   }
   
+  // using an immutable operation so as not to filter the source array
   filterSessions(filter) {
     this.activeFilter = filter;
     if(filter === 'all') {
@@ -55,21 +63,13 @@ export class EventDetailsComponent implements OnInit {
     }
   }
   
-  isActiveFilter(filter) {
-    return filter === this.activeFilter;
-  }
-  
-  upVoteSession(session: Session) {
+  toggleVote(session: Session) {
     if(!this.voted) {
       session.voteCount++;
       this.voted = true;
-    }
-  }
-  
-  downVoteSession(session: Session) {
-    if(!this.voted && session.voteCount > 0) {
+    } else {
       session.voteCount--;
-      this.voted = true;
+      this.voted = false;
     }
   }
 }

@@ -3,27 +3,24 @@ import { EventService, Event } from './shared/shared';
 
 
 @Component({
+  moduleId: module.id,
   selector: 'upvote',
-  styleUrls: ['app/events/upvote.component.css'],
+  styleUrls: ['upvote.component.css'],
   template:`
     <div class="votingWidgetContainer">
       <div class="well votingWidget">
-        <div class="votingButton" (click)="localupvote()">
-            <i class="glyphicon glyphicon-chevron-up" style="color:white"></i>
+        <div class="votingButton" (click)="onClick()">
+            <i class="glyphicon glyphicon-thumbs-up" style="color:white"></i>
         </div>
         <div class="badge badge-inverse votingCount">
             <div>{{count}}</div>
-        </div>
-        <div class="votingButton" (click)="localdownvote()">
-            <i class="glyphicon glyphicon-chevron-down"></i>
         </div>
       </div>
     </div>
   `,
 })
 export class UpvoteComponent implements OnInit {
-  @Output() upVote = new EventEmitter();
-  @Output() downVote = new EventEmitter();
+  @Output() vote = new EventEmitter();
   @Input() count : number;
   
   constructor() {}
@@ -31,11 +28,7 @@ export class UpvoteComponent implements OnInit {
   ngOnInit() {
   }
   
-  localupvote() {
-    this.upVote.emit({});
-  }
-  
-  localdownvote() {
-    this.downVote.emit({});
+  onClick() {
+    this.vote.emit({});
   }
 }
