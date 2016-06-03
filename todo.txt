@@ -35,3 +35,4 @@ look at integrating CLI
 implement tests
 make active link work in navbar
 jim - authentication - JWT
+Add a profile (or user) section of the site with a top-level route
