@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FORM_DIRECTIVES, FormBuilder, Control, ControlGroup, Validators } from '@angular/common';
-import { EventService, Event, Session } from './shared/shared';
+import { EventService, Event, Session } from './shared/index';
 import { Router } from '@angular/router-deprecated';
 
 function exactly2(control: any): {[key: string]: boolean} {

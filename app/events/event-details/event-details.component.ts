@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { EventService, Event, Session } from './shared/shared';
+import { EventService, Event, Session } from '../shared/index';
 import { RouteParams } from '@angular/router-deprecated';
 import { SessionListComponent } from './session-list.component'
 

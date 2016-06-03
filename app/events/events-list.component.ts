@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EventThumbnailComponent } from './event-thumbnail.component';
-import { EventService, Event } from './shared/shared';
+import { EventService, Event } from './shared/index';
 
 @Component({
   selector: 'events-list',

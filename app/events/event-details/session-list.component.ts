@@ -1,7 +1,7 @@
 import { Component, OnChanges, Input } from '@angular/core';
-import { Session } from './shared/shared';
+import { Session } from '../shared/index';
 import { UpvoteComponent } from './upvote.component';
-import { CollapsibleWellComponent } from '../common/collapsible-well.component';
+import { CollapsibleWellComponent } from '../../common/collapsible-well.component';
 
 @Component({
   moduleId: module.id,
