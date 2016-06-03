@@ -7,7 +7,6 @@ import { SessionListComponent } from './session-list.component'
   moduleId: module.id,
   selector: 'event-details',
   templateUrl: 'event-details.component.html',
-  styles: ['collapsible-panel > h6 {margin-top:-5px; margin-bottom:10px }'],
   directives: [SessionListComponent]
 })
 export class EventDetailsComponent implements OnInit {

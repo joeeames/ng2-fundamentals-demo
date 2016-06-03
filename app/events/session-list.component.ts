@@ -7,7 +7,7 @@ import { CollapsibleWellComponent } from '../common/collapsible-well.component';
   moduleId: module.id,
   selector: 'session-list',
   templateUrl: 'session-list.component.html',
-  styles: ['collapsible-panel > h6 {margin-top:-5px; margin-bottom:10px }'],
+  styles: ['collapsible-well h6 {margin-top:-5px; margin-bottom:10px }'],
   directives: [UpvoteComponent, CollapsibleWellComponent]
 })
 export class SessionListComponent implements OnChanges {
