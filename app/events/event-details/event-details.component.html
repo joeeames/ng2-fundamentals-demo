@@ -42,9 +42,10 @@
         </div>
     </div>
     <div class="col-md-2">
-      <a href="#">Add Session</a>
+      <a (click)="addSession()">Add Session</a>
     </div>
   </div>
   
-  <session-list ng-if="event?.sessions" [sessions]="event?.sessions" [sortBy]="sortBy" [filterBy]="filterBy"></session-list>
+  <session-list *ngIf="!addMode && event?.sessions" [sessions]="event?.sessions" [sortBy]="sortBy" [filterBy]="filterBy"></session-list>
+  <create-session *ngIf="addMode"></create-session>
 </div>
