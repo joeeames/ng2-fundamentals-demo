@@ -11,11 +11,13 @@ jim - after creating an event, redirect to event details in session create mode
 jim - implement date picker (or something else)
 jim - implement durations pipe
 
-joe - hook up a search
+joe - a "global login" and existing users
 joe - make voting only upvote and remove
+joe - hook up a search
 add profile page
 add more sample data
 add authentication
+figure out deployment - use gulp template precacher
 
 later:
 use some heirarchical injector

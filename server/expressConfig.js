@@ -9,7 +9,7 @@ var express = require('express'),
 var rootPath = path.normalize(__dirname + '/../');
 
 module.exports = function(app) {
-  app.use(logger('dev'));
+  // app.use(logger('tiny'));
   app.use(cookieParser());
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: false }));

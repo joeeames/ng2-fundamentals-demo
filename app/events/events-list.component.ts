@@ -27,7 +27,6 @@ export class EventsListComponent {
   
   ngOnInit() {
     this.eventService.getEvents().subscribe(events => {
-      console.log('events', events);
       this.events = events;
     })
   }

@@ -20,7 +20,8 @@ var events = [
         duration: 3,
         level: "Intermediate",
         abstract: "Learn all about Pipes with PBD",
-        voteCount: 4
+        voteCount: 3,
+        voters: ['bradgreen', 'igorminar', 'martinfowler']
       },
       {
         id: 2,
@@ -29,7 +30,8 @@ var events = [
         duration: 4,
         level: "Intermediate",
         abstract: "We all know that our dev teams work hard, but with the right management they can be even more productive, without overworking them. In this session I'll show you how to get the best results from the talent you already have on staff.",
-        voteCount: 7
+        voteCount: 4,
+        voters: ['johnpapa', 'bradgreen', 'igorminar', 'martinfowler']
       },
       {
         id: 3,
@@ -38,7 +40,8 @@ var events = [
         duration: 4,
         level: "Advanced",
         abstract: "Angular 2 Performance is hot. In this session, we'll see all about it",
-        voteCount: 0
+        voteCount: 0,
+        voters: []
       },
       {
         id: 4,
@@ -47,7 +50,8 @@ var events = [
         duration: 4,
         level: "Beginner",
         abstract: "It's time to learn the basics of Angular 2. This talk will give you everything you need to know about Angular 2 to get started with it today.",
-        voteCount: 2
+        voteCount: 2,
+        voters: ['bradgreen', 'igorminar']
       }
     ]
   },
