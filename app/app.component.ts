@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ROUTER_PROVIDERS, ROUTER_DIRECTIVES, RouteConfig } from '@angular/router-deprecated';
-import { EventService, EventsComponent } from './events/events';
+import { EventService, EventsComponent } from './events/index';
 import { NavBarComponent } from './nav/navbar.component';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Rx';

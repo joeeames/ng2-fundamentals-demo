@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
-import { EventService, Event } from './shared/shared';
+import { EventService, Event } from '../shared/index';
 
 @Component({
   moduleId: module.id,

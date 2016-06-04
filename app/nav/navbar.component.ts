@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { RouterLink } from '@angular/router-deprecated';
-import { EventService, Event } from '../events/events';
+import { EventService, Event } from '../events/index';
 
 @Component({
   moduleId: module.id,
