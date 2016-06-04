@@ -11,6 +11,7 @@ export class Event {
     country: string;
   }
   sessions: Session[]; 
+  voters: string[];
   
   constructor() {
     this.location = {
@@ -18,7 +19,7 @@ export class Event {
       city: "",
       country: ""
     }
-    
+    this.voters = [];
   }
 }
 
@@ -31,4 +32,6 @@ export class Session {
   abstract: string;
   voteCount: number;
 }
+
+
 
