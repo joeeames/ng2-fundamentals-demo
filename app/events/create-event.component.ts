@@ -11,20 +11,23 @@ function exactly2(control: any): {[key: string]: boolean} {
   moduleId: module.id,
   selector: 'create-event',
   templateUrl: "/app/events/create-event.component.html",
+  styles: [`
+    em {float:right; color:#E05C65;}
+    .error input {background-color:#E3C3C5;}
+    .error ::-webkit-input-placeholder { color: #999; }
+  `],
   directives: [FORM_DIRECTIVES]
 })
 export class CreateEventComponent implements OnInit {
-  
-  submitAttempt: boolean = false;
   newEvent: Event;
   newEventForm: ControlGroup;
   name: Control;
   date: Control;
   time: Control;
   price: Control;
-  locationAddress: Control;
-  locationCity: Control;
-  locationCountry: Control;
+  address: Control;
+  city: Control;
+  country: Control;
   imageUrl: Control;
   
   constructor(private eventService: EventService, 
@@ -33,21 +36,22 @@ export class CreateEventComponent implements OnInit {
     this.date = new Control('', Validators.required);
     this.time = new Control('', Validators.required);
     this.price = new Control('', Validators.required)
-    this.locationAddress = new Control('', Validators.required);
-    this.locationCity = new Control('', Validators.required);
-    this.locationCountry = new Control('', Validators.required);
+    this.address = new Control('', Validators.required);
+    this.city = new Control('', Validators.required);
+    this.country = new Control('', Validators.required);
     this.imageUrl = new Control('', Validators.required);
-    // this.locationCountry = new Control('', exactly2);
+    // this.country = new Control('', exactly2);
     
     this.newEventForm = builder.group({
       name: this.name,
       date: this.date,
       time: this.time,
       price: this.price,
-      // location: builder.group({
-      locationAddress: this.locationAddress,
-      locationCity: this.locationCity,
-      locationCountry: this.locationCountry,
+      location: builder.group({
+        address: this.address,
+        city: this.city,
+        country: this.country
+      }),
       // }),
       imageUrl: this.imageUrl,
     })
@@ -58,7 +62,7 @@ export class CreateEventComponent implements OnInit {
   }
   
   saveEvent(formValues) {
-    this.submitAttempt = true;
+    console.log(formValues)
     if(this.newEventForm.valid) {
 
       var newEvent = {
