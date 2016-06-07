@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { RouterLink } from '@angular/router-deprecated';
 import { EventService, Event } from '../events/index';
+import { AuthService, User } from '../users/auth.service';
 
 @Component({
   moduleId: module.id,
@@ -13,7 +14,8 @@ import { EventService, Event } from '../events/index';
 export class NavBarComponent {
   events: Event[];
   
-  constructor(private eventService: EventService) {
+  constructor(private eventService: EventService,
+    private auth: AuthService) {
   } 
   
   ngOnInit() {

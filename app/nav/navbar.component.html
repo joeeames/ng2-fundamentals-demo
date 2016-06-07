@@ -29,7 +29,7 @@
         </li>
       </ul>
       <div class="navbar-header navbar-right">
-        <a class="navbar-brand" [routerLink]="['Events']">Welcome Joe</a>
+        <a class="navbar-brand" [routerLink]="['Profile']">Welcome {{auth.currentUser?.firstName}}</a>
       </div>
       <form class="navbar-form navbar-right" role="search">
         <div class="form-group">

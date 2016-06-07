@@ -2,8 +2,16 @@ import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 
+export interface User {
+  id: number,
+  firstName: string,
+  lastName: string,
+  userName: string
+}
+
 @Injectable()
 export class AuthService {
+  currentUser: any;
   
   constructor(private http: Http) {}
   
@@ -19,6 +27,7 @@ export class AuthService {
     .catch(this.handleError)
     .subscribe(resp =>{
       // have to subscribe to make the post actually happen
+      this.currentUser = <User>resp.json().user;
     })
   }
   
