@@ -4,7 +4,8 @@ import { EventService, EventsComponent } from './events/index';
 import { NavBarComponent } from './nav/navbar.component';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
-import { AuthService } from './common/auth.service';
+import { AuthService } from './users/auth.service';
+import { ProfileComponent } from './users/profile.component';
 
 @Component({
   selector: 'events-app',
@@ -23,7 +24,8 @@ import { AuthService } from './common/auth.service';
   ]
 })
 @RouteConfig([
-  {path: '/events/...', name: 'Events', component: EventsComponent, useAsDefault: true}
+  {path: '/events/...', name: 'Events', component: EventsComponent, useAsDefault: true},
+  {path: '/profile', name: 'Profile', component: ProfileComponent}
 ])
 export class AppComponent {
   
