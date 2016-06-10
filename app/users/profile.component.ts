@@ -17,28 +17,27 @@ export class ProfileComponent {
   constructor(private auth : AuthService, 
       private builder: FormBuilder,
       private router: Router) {
-    this.firstName = new Control('', Validators.required);
-    this.lastName = new Control('', Validators.required);
+    this.firstName = new Control(this.auth.currentUser.firstName, Validators.required);
+    this.lastName = new Control(this.auth.currentUser.lastName, Validators.required);
     
     this.profileForm = builder.group({
-      name: this.firstName,
-      date: this.lastName,
+      firstName: this.firstName,
+      lastName: this.lastName,
     })
   }
   
-  saveProfile() {
+  saveProfile(formValues) {
     this.submitAttempt = true;
     if(this.profileForm.valid) {
 
-      this.auth.currentUser.firstName = this.firstName;
-      this.auth.currentUser.lastName = this.lastName;
+      this.auth.currentUser.firstName = formValues.firstName;
+      this.auth.currentUser.lastName = formValues.lastName;
       
-      this.eventService.createEvent(newEvent)
-        .subscribe(event => {
-          this.router.navigate(['Event', {id:event.id}]);
-        })
-      
-      
+      // this.eventService.createEvent(newEvent)
+      //   .subscribe(event => {
+      //     this.router.navigate(['Event', {id:event.id}]);
+      //   })
+      this.submitAttempt = false;
     }
   }
   

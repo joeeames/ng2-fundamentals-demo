@@ -24,6 +24,10 @@ module.exports = function(app) {
     res.sendStatus(404);
   });
   
+  app.get('/node_modules/*', function(req, res) {
+    res.sendStatus(404);
+  });
+  
   app.get('*', function(req, res) {
     // res.sendStatus(404);
     res.sendFile(path.resolve(__dirname + '/../index.html'));
