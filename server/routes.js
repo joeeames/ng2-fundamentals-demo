@@ -10,6 +10,7 @@ module.exports = function(app) {
 
   app.post('/api/login', auth.authenticate);
   app.get('/api/currentIdentity', auth.getCurrentIdentity);
+  app.put('/api/users/:id', users.updateUser);
   
   app.get('/api/events', events.getEvents);
   app.get('/api/events/:eventId', events.getEvent);

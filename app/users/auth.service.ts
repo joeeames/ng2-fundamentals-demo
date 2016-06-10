@@ -11,7 +11,7 @@ export interface User {
 
 @Injectable()
 export class AuthService {
-  currentUser: any;
+  currentUser: User;
   
   constructor(private http: Http) {}
   
@@ -29,6 +29,19 @@ export class AuthService {
       // have to subscribe to make the post actually happen
       this.currentUser = <User>resp.json().user;
     })
+  }
+
+  updateCurrentUser() {
+    let headers = new Headers({ 'Content-Type': 'application/json'});
+    let options = new RequestOptions({headers: headers });
+    
+    var result = this.http.put(`/api/users/${this.currentUser.id}`, 
+      JSON.stringify(this.currentUser), options);
+      
+    return result.map((response: Response) => {
+        var returnedData = response.json();
+        return returnedData;
+    }).catch(this.handleError);
   }
   
   private handleError(error: Response) {

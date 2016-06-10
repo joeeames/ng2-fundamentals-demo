@@ -6,6 +6,7 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import { AuthService } from './users/auth.service';
 import { ProfileComponent } from './users/profile.component';
+import { ToastrService } from './common/toastr.service';
 
 @Component({
   selector: 'events-app',
@@ -16,7 +17,8 @@ import { ProfileComponent } from './users/profile.component';
   providers: [
     ROUTER_PROVIDERS,
     EventService,
-    AuthService
+    AuthService,
+    ToastrService
   ],
   directives: [
     ROUTER_DIRECTIVES,

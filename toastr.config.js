@@ -1,1 +1,1 @@
-toastr.options.timeOut = 150000;
+toastr.options.timeOut = 1500;

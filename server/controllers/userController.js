@@ -7,12 +7,12 @@ var nextId = getNextId(users);
 
 exports.updateUser = function(req, res) {
   var updatedUser = req.body;
-  
+
+  console.log('updating user');  
   var foundUser = users.find(user => user.id === parseInt(req.params.id));
   if(foundUser) {
     foundUser.firstName = updatedUser.firstName;
     foundUser.lastName = updatedUser.lastName;
-    foundUser.password = updatedUser.password;
   }
 
   res.send(foundUser);
