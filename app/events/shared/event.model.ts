@@ -31,6 +31,7 @@ export class Session {
   level: string;
   abstract: string;
   voteCount: number;
+  voters: string[];
 }
 
 

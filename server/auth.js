@@ -8,7 +8,6 @@ exports.authenticate = function(req, res, next) {
     if(!user) { res.sendStatus(403); }
     req.logIn(user, function(err) {
       if(err) {return next(err);}
-      console.log('logged in');
       res.send({success:true, user: user});
     })
   })

@@ -2,10 +2,9 @@
   <div class="row" style=margin-top:10px; *ngFor="let session of visibleSessions">
     <div class="col-md-1">
       <upvote (vote)="toggleVote(session)" 
-        [count]="session.voteCount"></upvote>
+        [count]="session.voteCount" [voted]="userHasVoted(session)"></upvote>
     </div>
-    <div class="well col-md-10" style="margin-left:10px;">
-      {{session.name}}
+    <div class="col-md-10" style="margin-left:10px;">
       <collapsible-well [title]="session.name">
           <h6>{{session.presenter}}</h6>
           <span>Duration: {{session.duration}}</span><br />

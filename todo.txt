@@ -6,18 +6,18 @@
 *add price to event data
 *implement collapsable panel
 *rework sorting & filtering in details page to use [class.active] instead of ngClass
+*joe - a "global login" and existing users
+*add profile page
+*joe - make voting only upvote and remove
+*add authentication
+
 jim - implement the add session ability
 jim - after creating an event, redirect to event details in session create mode
 jim - implement date picker (or something else)
 jim - implement durations pipe
-
-*joe - a "global login" and existing users
-add profile page
-joe - make voting only upvote and remove
-joe - hook up a search
-add more sample data
-*add authentication
+joe - add more sample data - make the sample data futuristic
 figure out deployment - use gulp template precacher
+joe - hook up a search
 
 later:
 use some heirarchical injector
