@@ -11,12 +11,12 @@ jim - after creating an event, redirect to event details in session create mode
 jim - implement date picker (or something else)
 jim - implement durations pipe
 
-joe - a "global login" and existing users
+*joe - a "global login" and existing users
+add profile page
 joe - make voting only upvote and remove
 joe - hook up a search
-add profile page
 add more sample data
-add authentication
+*add authentication
 figure out deployment - use gulp template precacher
 
 later:
@@ -38,3 +38,5 @@ implement tests
 make active link work in navbar
 jim - authentication - JWT
 Add a profile (or user) section of the site with a top-level route
+
+http://monorailcat.com/wp-content/uploads/2013/05/funny-cat-videos-part-5.jpg

@@ -62,6 +62,7 @@ export class CreateEventComponent implements OnInit {
   
   ngOnInit() {
     this.newEvent = new Event();
+    // TODO: is this needed?
   }
   
   isLocationComplete(location) {
