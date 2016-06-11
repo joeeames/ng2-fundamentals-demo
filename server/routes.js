@@ -15,6 +15,7 @@ module.exports = function(app) {
   app.get('/api/events', events.getEvents);
   app.get('/api/events/:eventId', events.getEvent);
   app.post('/api/events', events.createEvent);
+  app.get('/api/sessions/search', events.searchSessions);
   
   app.post('/api/logout', function(req, res) {
     req.logout();

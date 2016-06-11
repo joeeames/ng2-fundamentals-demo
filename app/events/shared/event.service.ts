@@ -33,6 +33,13 @@ export class EventService {
     }).catch(this.handleError);
     
   }
+
+  searchSessions(searchTerm: string) {
+    return this.http.get(`/api/sessions/search?search=${searchTerm}`)
+      .map((response: Response) => {
+        return <Event>response.json();
+      }).catch(this.handleError);
+  }
   
   private handleError(error: Response) {
     console.error(error);
