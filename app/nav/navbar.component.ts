@@ -13,6 +13,7 @@ import { AuthService, User } from '../users/auth.service';
 })
 export class NavBarComponent {
   events: Event[];
+  searchTerm: string = "";
   
   constructor(private eventService: EventService,
     private auth: AuthService) {
@@ -24,4 +25,11 @@ export class NavBarComponent {
         this.events = events;
       })
   }
+
+  searchSessions(searchTerm) {
+    this.eventService.searchSessions(searchTerm)
+      .subscribe(sessions => {
+        console.log(sessions);
+      })
+  } 
 }

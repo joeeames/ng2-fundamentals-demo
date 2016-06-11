@@ -10,20 +10,25 @@
 *add profile page
 *joe - make voting only upvote and remove
 *add authentication
+*joe - add more sample data - make the sample data futuristic
 
 jim - implement the add session ability
 jim - after creating an event, redirect to event details in session create mode
 jim - implement date picker (or something else)
 jim - implement durations pipe
-joe - add more sample data - make the sample data futuristic
-figure out deployment - use gulp template precacher
+
+joe - add voting persistence - with delete?? - also remove votecount?
 joe - hook up a search
+  possibly use a directive for bootstrap dropdown controlling.
+figure out deployment - use gulp template precacher
 
 later:
-use some heirarchical injector
+switch typescript to systemjs module type
+use a heirarchical injector
 attribute directive ideas:
   measure weight of something with font-weight?
   turn some text a certain color when a bool is true (used for voting)
+  a bootstrap dropdown controller?
 make a more robust voting algorithm, maybe add a service
 eval the a2-in-memory-web-api
 *take out the extraneous event interface or class
