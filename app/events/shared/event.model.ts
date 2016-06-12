@@ -30,7 +30,6 @@ export class Session {
   duration: number;
   level: string;
   abstract: string;
-  voteCount: number;
   voters: string[];
 }
 

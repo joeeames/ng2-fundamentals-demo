@@ -3,6 +3,7 @@ import { Session } from '../shared/index';
 import { UpvoteComponent } from './upvote.component';
 import { CollapsibleWellComponent } from '../../common/collapsible-well.component';
 import { AuthService } from '../../users/auth.service';
+import { EventService } from '../shared/index';
 
 @Component({
   moduleId: module.id,
@@ -12,12 +13,14 @@ import { AuthService } from '../../users/auth.service';
   directives: [UpvoteComponent, CollapsibleWellComponent]
 })
 export class SessionListComponent implements OnChanges {
-  @Input() sessions:Session[];
-  @Input() sortBy:string;
-  @Input() filterBy:string;
+  @Input() sessions: Session[];
+  @Input() sortBy: string;
+  @Input() filterBy: string;
+  @Input() eventId: number;
   visibleSessions: Session[] = [];
   
-  constructor(private auth: AuthService) {  }
+  constructor(private auth: AuthService, 
+      private eventService: EventService) {  }
   
   ngOnChanges() {
     if  (this.sessions) {
@@ -41,18 +44,16 @@ export class SessionListComponent implements OnChanges {
   
   toggleVote(session: Session) {
     if(this.userHasVoted(session)) {
-      session.voteCount--;
-      session.voters = session.voters.filter(voter => voter !== this.auth.currentUser.userName);
+      this.eventService.deleteVoter(this.eventId, session, this.auth.currentUser.userName);
     } else {
-      session.voteCount++;
-      session.voters.push(this.auth.currentUser.userName);
+      this.eventService.addVoter(this.eventId, session, this.auth.currentUser.userName)
     }
     if(this.sortBy === 'votes')
         this.visibleSessions.sort(sortByVotesDesc)
   }
     
   userHasVoted(session: Session) {
-    return session.voters.some(voter => voter === this.auth.currentUser.userName)
+    return this.eventService.userHasVoted(session, this.auth.currentUser.userName);
   }
 }
 
@@ -64,5 +65,5 @@ function sortByNameAsc(s1: Session, s2: Session) {
 }
 
 function sortByVotesDesc(s1: Session, s2: Session) {
-  return s2.voteCount - s1.voteCount
+  return s2.voters.length - s1.voters.length
 }

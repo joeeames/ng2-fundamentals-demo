@@ -17,10 +17,14 @@ jim - after creating an event, redirect to event details in session create mode
 jim - implement date picker (or something else)
 jim - implement durations pipe
 
-joe - add voting persistence - with delete?? - also remove votecount?
-joe - hook up a search
+joe - change the body close clicker to work only on the modal-body tag 
+*joe - add voting persistence - with delete?? - also remove votecount?
+*joe - hook up a search
   possibly use a directive for bootstrap dropdown controlling.
+joe - wrap jQuery in a service
 figure out deployment - use gulp template precacher
+joe - look at using provide() for wrapping toastr - provide(MyValue, {useValue: 41})
+use animation when elements get resorted due to voting
 
 later:
 switch typescript to systemjs module type
