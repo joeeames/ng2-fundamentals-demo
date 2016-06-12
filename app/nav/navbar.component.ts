@@ -2,18 +2,23 @@ import {Component, OnInit} from '@angular/core';
 import { RouterLink } from '@angular/router-deprecated';
 import { EventService, Event } from '../events/index';
 import { AuthService, User } from '../users/auth.service';
+import { ModalTriggerDirective } from '../common/modalTrigger.directive';
+import { SimpleModalComponent } from '../common/simpleModal.component';
 
 @Component({
   moduleId: module.id,
   selector: 'nav-bar',
   templateUrl: `navbar.component.html`,
   directives: [
-    RouterLink
+    RouterLink,
+    ModalTriggerDirective,
+    SimpleModalComponent
   ]
 })
 export class NavBarComponent {
   events: Event[];
   searchTerm: string = "";
+  foundSessions: any;
   
   constructor(private eventService: EventService,
     private auth: AuthService) {
@@ -29,7 +34,7 @@ export class NavBarComponent {
   searchSessions(searchTerm) {
     this.eventService.searchSessions(searchTerm)
       .subscribe(sessions => {
-        console.log(sessions);
+        this.foundSessions = sessions;
       })
   } 
 }

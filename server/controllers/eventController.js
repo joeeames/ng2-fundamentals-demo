@@ -17,18 +17,49 @@ exports.searchSessions = function(req, res) {
 	var term = req.query.search.toLowerCase();
   var results = [];
   events.forEach(event => {
-    results = results.concat(event.sessions.filter(session => session.name.toLowerCase().indexOf(term) > -1));
+    var matchingSessions = event.sessions.filter(session => session.name.toLowerCase().indexOf(term) > -1)
+    matchingSessions = matchingSessions.map(session => {
+      session.eventId = event.id;
+      return session;
+    })
+    results = results.concat(matchingSessions);
   })
   res.send(results);
 }
 
+exports.deleteVoter = function(req, res) {
+  var voterId = req.params.voterId,
+      sessionId = parseInt(req.params.sessionId),
+      eventId = parseInt(req.params.eventId);
+
+  var session = events.find(event => event.id === eventId)
+    .sessions.find(session => session.id === sessionId)
+    
+  session.voters = session.voters.filter(voter => voter !== voterId);
+  console.log('voters', session.voters);
+  res.send(session);
+}
+
+exports.addVoter = function(req, res) {
+  var voterId = req.params.voterId,
+      sessionId = parseInt(req.params.sessionId),
+      eventId = parseInt(req.params.eventId);
+
+  var session = events.find(event => event.id === eventId)
+    .sessions.find(session => session.id === sessionId)
+    
+  session.voters.push(voterId);
+  console.log('voters', session.voters);
+  res.send(session);
+}
+
 exports.createEvent = function(req, res) {
   var newEvent = req.body;
-  newEvent.id = nextId;
-  newEvent.sessions = [];
   
+  newEvent.id = nextId;
   nextId++;
   
+  newEvent.sessions = [];
   events.push(newEvent);
 
   res.send(newEvent);
