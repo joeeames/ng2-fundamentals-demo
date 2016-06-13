@@ -3,14 +3,16 @@ import { Session } from '../shared/index';
 import { UpvoteComponent } from './upvote.component';
 import { CollapsibleWellComponent } from '../../common/collapsible-well.component';
 import { AuthService } from '../../users/auth.service';
-import { EventService } from '../shared/index';
+import { VoterService } from './voter.service';
+
 
 @Component({
   moduleId: module.id,
   selector: 'session-list',
   templateUrl: 'session-list.component.html',
   styles: ['collapsible-well h6 {margin-top:-5px; margin-bottom:10px }'],
-  directives: [UpvoteComponent, CollapsibleWellComponent]
+  directives: [UpvoteComponent, CollapsibleWellComponent],
+  providers: [VoterService]
 })
 export class SessionListComponent implements OnChanges {
   @Input() sessions: Session[];
@@ -20,7 +22,7 @@ export class SessionListComponent implements OnChanges {
   visibleSessions: Session[] = [];
   
   constructor(private auth: AuthService, 
-      private eventService: EventService) {  }
+      private voterService: VoterService) {  }
   
   ngOnChanges() {
     if  (this.sessions) {
@@ -44,16 +46,16 @@ export class SessionListComponent implements OnChanges {
   
   toggleVote(session: Session) {
     if(this.userHasVoted(session)) {
-      this.eventService.deleteVoter(this.eventId, session, this.auth.currentUser.userName);
+      this.voterService.deleteVoter(this.eventId, session, this.auth.currentUser.userName);
     } else {
-      this.eventService.addVoter(this.eventId, session, this.auth.currentUser.userName)
+      this.voterService.addVoter(this.eventId, session, this.auth.currentUser.userName)
     }
     if(this.sortBy === 'votes')
         this.visibleSessions.sort(sortByVotesDesc)
   }
     
   userHasVoted(session: Session) {
-    return this.eventService.userHasVoted(session, this.auth.currentUser.userName);
+    return this.voterService.userHasVoted(session, this.auth.currentUser.userName);
   }
 }
 

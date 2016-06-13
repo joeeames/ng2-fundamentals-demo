@@ -1,8 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Inject } from '@angular/core';
 import { AuthService, User } from './auth.service';
 import { FORM_DIRECTIVES, FormBuilder, Control, ControlGroup, Validators } from '@angular/common';
 import { Router } from '@angular/router-deprecated';
-import { ToastrService } from '../common/toastr.service';
+import { TOASTR_TOKEN, Toastr } from '../common/toastr.service';
 
 @Component({
   selector: 'user-profile',
@@ -10,7 +10,6 @@ import { ToastrService } from '../common/toastr.service';
   directives: [FORM_DIRECTIVES]
 })
 export class ProfileComponent {
-  submitAttempt: boolean = false;
   firstName: Control;
   lastName: Control;
   profileForm: ControlGroup;
@@ -18,7 +17,7 @@ export class ProfileComponent {
   constructor(private auth : AuthService, 
       private builder: FormBuilder,
       private router: Router,
-      private toastr: ToastrService) {
+      @Inject(TOASTR_TOKEN) private toastr: Toastr) {
     this.firstName = new Control(this.auth.currentUser.firstName, Validators.required);
     this.lastName = new Control(this.auth.currentUser.lastName, Validators.required);
 
@@ -29,7 +28,6 @@ export class ProfileComponent {
   }
   
   saveProfile(formValues) {
-    this.submitAttempt = true;
     if(this.profileForm.valid) {
 
       this.auth.currentUser.firstName = formValues.firstName;
@@ -37,10 +35,9 @@ export class ProfileComponent {
       
       this.auth.updateCurrentUser()
         .subscribe(user => {
-          // do nothing
+          // do nothing, but still have to subscribe
         })
 
-      this.submitAttempt = false;
       this.toastr.success('Profile Saved');
     }
   }
