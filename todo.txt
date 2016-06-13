@@ -17,13 +17,13 @@
 *joe - change the body close clicker to work only on the modal-body tag 
 *joe - wrap jQuery in a service
 *joe - look at using provide() for wrapping toastr - provide(MyValue, {useValue: 41})
+*joe - make the title in the collapsible well a 2nd ng-content to show multi slot content projection 
 
 jim - implement the add session ability
 jim - after creating an event, redirect to event details in session create mode
 jim - implement date picker (or something else)
 jim - implement durations pipe
 
-joe - make the title in the collapsible well a 2nd ng-content to show multi slot content projection 
 joe - move profile to model driven form
 figure out deployment - use gulp template precacher? use now on mac?
 use animation when elements get resorted due to voting

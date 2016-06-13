@@ -5,15 +5,31 @@
         [count]="session.voters.length" [voted]="userHasVoted(session)"></upvote>
     </div>
     <div class="col-md-10" style="margin-left:10px;">
-      <collapsible-well [title]="session.name">
-        
+      <!-- multi slot content projection -->
+      <collapsible-well>
+        <well-title>
+          {{session.name}}
+          <i *ngIf="session.voters.length > 3" class="glyphicon glyphicon-fire" style="color:red"></i>
+        </well-title>
+        <well-body>
           <h6>{{session.presenter}}</h6>
           <span>Duration: {{session.duration}}</span><br />
           <span>Level: {{session.level}}</span>
 
           <p>{{session.abstract}}</p>
-       
+        </well-body>
+
+        
       </collapsible-well>
+      <!-- single slot content projection-->
+      <collapsible-well [title]="session.name">
+        <h6>{{session.presenter}}</h6>
+        <span>Duration: {{session.duration}}</span><br />
+        <span>Level: {{session.level}}</span>
+
+        <p>{{session.abstract}}</p>
+      </collapsible-well>
+      
     </div>
   </div>
 </div>
