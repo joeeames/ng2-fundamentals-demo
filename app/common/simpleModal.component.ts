@@ -1,7 +1,7 @@
 import {Component, Input, OnInit, ElementRef, Inject} from '@angular/core';
 import { JQ_TOKEN } from './jQuery.service';
 
-// initially we can get jquery this way. eventually we use a service
+// initially we can get jquery this way. eventually we use a service so that it's testable
 // declare var $ : any;
 
 @Component({

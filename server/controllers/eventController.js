@@ -36,7 +36,6 @@ exports.deleteVoter = function(req, res) {
     .sessions.find(session => session.id === sessionId)
     
   session.voters = session.voters.filter(voter => voter !== voterId);
-  console.log('voters', session.voters);
   res.send(session);
 }
 
@@ -49,7 +48,6 @@ exports.addVoter = function(req, res) {
     .sessions.find(session => session.id === sessionId)
     
   session.voters.push(voterId);
-  console.log('voters', session.voters);
   res.send(session);
 }
 
