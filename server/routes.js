@@ -31,9 +31,18 @@ module.exports = function(app) {
   app.get('/node_modules/*', function(req, res) {
     res.sendStatus(404);
   });
+
+  app.get('/events/*', function(req, res) {
+    console.log('requesting from events ', req.path);
+    res.sendFile(path.resolve(__dirname + '/../index.html'));
+  });
+  app.get('/profile', function(req, res) {
+    console.log('requesting from events ', req.path);
+    res.sendFile(path.resolve(__dirname + '/../index.html'));
+  });
   
   app.get('*', function(req, res) {
-    // res.sendStatus(404);
-    res.sendFile(path.resolve(__dirname + '/../index.html'));
+    console.log('404 error', req.path);
+    res.sendStatus(404);
   });
 }

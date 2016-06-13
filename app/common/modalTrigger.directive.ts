@@ -14,12 +14,16 @@ export class ModalTriggerDirective implements OnInit {
     this.el = el.nativeElement;
    
     this.el.addEventListener('click', e => {
+      // this modal function doesn't exist on jquery,
+      // it's added by bootstrap, so adding jquery
+      // typings won't help things in general
+      // jquery typings added with "npm i typings -g"
+      // and then  "typings install dt~jquery --save --global"
       this.$(`#${this.searchModalId}`).modal({})
     })
 
   }
   
   ngOnInit() {
-
   }
 }
