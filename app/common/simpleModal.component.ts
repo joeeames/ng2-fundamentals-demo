@@ -1,6 +1,8 @@
-import {Component, Input, OnInit, ElementRef} from '@angular/core';
+import {Component, Input, OnInit, ElementRef, Inject} from '@angular/core';
+import { JQ_TOKEN } from './jQuery.service';
 
-declare var $ : any;
+// initially we can get jquery this way. eventually we use a service
+// declare var $ : any;
 
 @Component({
   moduleId: module.id,
@@ -33,14 +35,14 @@ export class SimpleModalComponent {
   @Input() title : string;
   private el: HTMLElement;
 
-  constructor(el: ElementRef) {
+  constructor(el: ElementRef, @Inject(JQ_TOKEN) private $ : any) {
     this.el = el.nativeElement;
   } 
   
   ngOnInit() {
-    if(this.closeOnBodyClick) {   
-      this.el.addEventListener('click', () => {
-        $(`#${this.elementId}`).modal('hide');
+    if(this.closeOnBodyClick) {
+      this.el.getElementsByClassName('modal-body')[0].addEventListener('click', () => {
+        this.$(`#${this.elementId}`).modal('hide');
       })
     }
   }
