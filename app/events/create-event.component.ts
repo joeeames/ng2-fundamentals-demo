@@ -12,9 +12,12 @@ function exactly2(control: any): {[key: string]: boolean} {
   selector: 'create-event',
   templateUrl: "/app/events/create-event.component.html",
   styles: [`
-    em {float:right; color:#E05C65;}
+    em {float:right; color:#E05C65; padding-left:10px;}
     .error input {background-color:#E3C3C5;}
-    .error ::-webkit-input-placeholder { color: #999; }
+    .error ::-webkit-input-placeholder { color: #999; } 
+    .error :-moz-placeholder { color: #999; }
+    .error ::-moz-placeholder { color: #999; }
+    .error :ms-input-placeholder  { color: #999; }
   `],
   directives: [FORM_DIRECTIVES]
 })
@@ -39,7 +42,7 @@ export class CreateEventComponent implements OnInit {
     this.address = new Control('', Validators.required);
     this.city = new Control('', Validators.required);
     this.country = new Control('', Validators.compose([Validators.required, Validators.pattern('[A-Z]{2}')]));
-    this.imageUrl = new Control('');
+    this.imageUrl = new Control('', Validators.required);
     // this.country = new Control('', exactly2);
     
     this.newEventForm = builder.group({

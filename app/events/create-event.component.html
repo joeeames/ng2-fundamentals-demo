@@ -2,12 +2,12 @@
 <hr>
 <div class="col-md-6">
   <form  autocomplete="off" [ngFormModel]="newEventForm" (ngSubmit)="saveEvent(newEventForm.value)">
-    <div class="form-group" [ngClass]="{ 'has-error' : !name.valid && name.dirty }">
+    <div class="form-group" [ngClass]="{ 'error' : !name.valid && name.dirty }">
       <label for="eventName">Event Name:</label>
       <em *ngIf="!name.valid && name.dirty">Required</em>
       <input id="eventName" type="text" ngControl="name" class="form-control" placeholder="Name of your event..." />
     </div>
-    <div class="form-group" [ngClass]="{ 'has-error' : !date.valid && date.dirty }">
+    <div class="form-group" [ngClass]="{ 'error' : !date.valid && date.dirty }">
       <label for="eventDate">Event Date:</label>
       <em *ngIf="!date.valid && date.dirty">Required</em>
       <div style="position:relative">
@@ -17,7 +17,7 @@
             <!--<date-picker for="eventDate"></date-picker>-->
       </div>
     </div>
-    <div class="form-group" [ngClass]="{ 'has-error' : !time.valid && time.dirty }">
+    <div class="form-group" [ngClass]="{ 'error' : !time.valid && time.dirty }">
       <label for="eventTime">Event Time:</label>
       <em *ngIf="!time.valid && time.dirty">Required</em>
       <input id="eventTime" type="text" ngControl="time" class="form-control" placeholder="start and end time..." />
@@ -31,7 +31,7 @@
       <div class="form-group" [ngClass]="{ 'error' : !address.valid && address.dirty }">
         <label for="address">Event Location:</label>
         <em *ngIf="!isLocationComplete(newEventForm.controls.location)">Required</em>
-        <em *ngIf="country.errors.pattern && country.dirty">Invalid Country</em>
+        <em *ngIf="country.errors && country.errors.pattern && country.dirty">Invalid Country</em>
         <input id="address" type="text" ngControl="address" class="form-control" placeholder="Address of event..." />
       </div>
       <div class="row">
@@ -43,7 +43,7 @@
         </div>
       </div>
     </fieldset>
-    <div class="form-group" [ngClass]="{ 'has-error' : !imageUrl.valid && imageUrl.dirty }">
+    <div class="form-group" [ngClass]="{ 'error' : !imageUrl.valid && imageUrl.dirty }">
       <label for="imageUrl">Image:</label>
       <em *ngIf="!imageUrl.valid && imageUrl.dirty">Required</em>
       <input id="imageUrl" type="text" ngControl="imageUrl" class="form-control" placeholder="url of image..." />
