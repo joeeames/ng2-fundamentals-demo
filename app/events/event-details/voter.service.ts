@@ -14,8 +14,7 @@ export class VoterService {
 
     this.http.delete(`/api/events/${eventId}/sessions/${session.id}/voters/${voterName}`)
       .catch(this.handleError)
-      .subscribe((response: Response) => {
-      })
+      .subscribe()
   }
 
   addVoter(eventId: number, session: Session, voterName: string) {
@@ -27,8 +26,7 @@ export class VoterService {
     var url = `/api/events/${eventId}/sessions/${session.id}/voters/${voterName}`;
     this.http.post(url, JSON.stringify({}), options)
       .catch(this.handleError)
-      .subscribe((response: Response) => {
-      })
+      .subscribe()
   }
 
   userHasVoted(session: Session, userName: string) {

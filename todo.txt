@@ -21,14 +21,14 @@
 
 jim - implement the add session ability
 jim - after creating an event, redirect to event details in session create mode
-jim - implement date picker (or something else)
+jim - implement date picker (or something else) - i don't think we need this
 jim - implement durations pipe
 
-joe - move profile to model driven form
-figure out deployment - use gulp template precacher? use now on mac?
+joe - figure out deployment - use gulp template precacher? use now on mac?
 use animation when elements get resorted due to voting
 
 later:
+make a dynamic form?
 switch typescript to systemjs module type
 use a heirarchical injector
 attribute directive ideas:

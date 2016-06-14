@@ -33,10 +33,10 @@ export class ProfileComponent {
       this.auth.currentUser.firstName = formValues.firstName;
       this.auth.currentUser.lastName = formValues.lastName;
       
+      // should probably have error handling
       this.auth.updateCurrentUser()
-        .subscribe(user => {
-          // do nothing, but still have to subscribe
-        })
+        .subscribe() // do nothing, but still have to subscribe
+ 
 
       this.toastr.success('Profile Saved');
     }

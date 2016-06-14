@@ -26,7 +26,6 @@ export class AuthService {
     )
     .catch(this.handleError)
     .subscribe(resp =>{
-      // have to subscribe to make the post actually happen
       this.currentUser = <User>resp.json().user;
     })
   }
