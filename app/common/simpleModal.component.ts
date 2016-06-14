@@ -42,7 +42,13 @@ export class SimpleModalComponent {
   } 
   
   ngOnInit() {
-    
+    // this method shows how to do it without the viewchild
+    // query
+    // if(this.closeOnBodyClick) {
+    //   this.el.getElementsByClassName('modal-body')[0].addEventListener('click', () => {
+    //     this.$(`#${this.elementId}`).modal('hide');
+    //   })
+    // }
   }
 
   ngAfterViewInit() {
