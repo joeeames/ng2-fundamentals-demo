@@ -52,7 +52,6 @@ export class CreateEventComponent implements OnInit {
         city: this.city,
         country: this.country
       }),
-      // }),
       imageUrl: this.imageUrl,
     })
   }
@@ -63,7 +62,6 @@ export class CreateEventComponent implements OnInit {
   }
   
   saveEvent(formValues) {
-    console.log(formValues)
     if(this.newEventForm.valid) {
 
       var newEvent = {
