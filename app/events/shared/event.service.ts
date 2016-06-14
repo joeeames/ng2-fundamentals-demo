@@ -35,6 +35,10 @@ export class EventService {
     
   }
 
+  saveEvent(eventData: any) {
+    this.createEvent(eventData)
+  }
+
   searchSessions(searchTerm: string) {
     return this.http.get(`/api/sessions/search?search=${searchTerm}`)
       .map((response: Response) => {
