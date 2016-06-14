@@ -35,11 +35,11 @@ export class CreateEventComponent implements OnInit {
     this.name = new Control('', Validators.required);
     this.date = new Control('', Validators.required);
     this.time = new Control('', Validators.required);
-    this.price = new Control('', Validators.required)
+    this.price = new Control('', Validators.compose([Validators.required, Validators.pattern('\\d\+(\\.\\d{0,2})?')]));
     this.address = new Control('', Validators.required);
     this.city = new Control('', Validators.required);
-    this.country = new Control('', Validators.required);
-    this.imageUrl = new Control('', Validators.required);
+    this.country = new Control('', Validators.compose([Validators.required, Validators.pattern('[A-Z]{2}')]));
+    this.imageUrl = new Control('');
     // this.country = new Control('', exactly2);
     
     this.newEventForm = builder.group({
@@ -59,6 +59,14 @@ export class CreateEventComponent implements OnInit {
   
   ngOnInit() {
     this.newEvent = new Event();
+  }
+  
+  isLocationComplete(location) {
+    var controls = location.controls
+  
+    return (!controls.address.errors || !controls.address.errors.required || !controls.address.dirty) && 
+      (!controls.city.errors || !controls.city.errors.required || !controls.city.dirty) &&
+      (!controls.country.errors || !controls.country.errors.required || !controls.country.dirty)
   }
   
   saveEvent(formValues) {
