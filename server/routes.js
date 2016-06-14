@@ -33,11 +33,9 @@ module.exports = function(app) {
   });
 
   app.get('/events/*', function(req, res) {
-    console.log('requesting from events ', req.path);
     res.sendFile(path.resolve(__dirname + '/../index.html'));
   });
   app.get('/profile', function(req, res) {
-    console.log('requesting from events ', req.path);
     res.sendFile(path.resolve(__dirname + '/../index.html'));
   });
   

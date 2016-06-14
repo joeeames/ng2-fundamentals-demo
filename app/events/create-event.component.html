@@ -30,7 +30,7 @@
     <fieldset ngControlGroup="location">
       <div class="form-group" [ngClass]="{ 'error' : !address.valid && address.dirty }">
         <label for="address">Event Location:</label>
-        <em *ngIf="!isLocationComplete(newEventForm.controls.location)">Required</em>
+        <em *ngIf="!isLocationComplete(newEventForm.controls.location)">Required, 2 letter country only</em>
         <em *ngIf="country.errors && country.errors.pattern && country.dirty">Invalid Country</em>
         <input id="address" type="text" ngControl="address" class="form-control" placeholder="Address of event..." />
       </div>

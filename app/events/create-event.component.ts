@@ -81,13 +81,14 @@ export class CreateEventComponent implements OnInit {
         time: formValues.time,
         price: +formValues.price,
         location: {
-          address: formValues.locationAddress,
-          city: formValues.locationCity,
-          country: formValues.locationCountry
+          address: formValues.location.address,
+          city: formValues.location.city,
+          country: formValues.location.country
         },
         imageUrl: formValues.imageUrl,
       }
-      
+      console.log(formValues)
+      console.log(newEvent)
       this.eventService.createEvent(newEvent)
         .subscribe(event => {
           this.router.navigate(['Event', {id:event.id}]);

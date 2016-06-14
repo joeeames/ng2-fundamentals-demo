@@ -53,6 +53,7 @@ exports.addVoter = function(req, res) {
 
 exports.createEvent = function(req, res) {
   var newEvent = req.body;
+  console.log('new event', newEvent);
   
   newEvent.id = nextId;
   nextId++;
