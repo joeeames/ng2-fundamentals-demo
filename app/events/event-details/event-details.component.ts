@@ -28,4 +28,15 @@ export class EventDetailsComponent implements OnInit {
    addSession() {
      this.addMode = true
    }
+
+   saveNewSession(session:Session) {
+     session.voters = []
+     this.event.sessions.push(session)
+     this.eventService.saveEvent(this.event)
+     this.addMode = false
+   }
+
+   cancelAddSession() {
+     this.addMode = false
+   }
 }
