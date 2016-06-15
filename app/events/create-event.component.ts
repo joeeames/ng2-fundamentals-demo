@@ -74,12 +74,11 @@ export class CreateEventComponent implements OnInit {
   
   saveEvent(formValues) {
     if(this.newEventForm.valid) {
-
       var newEvent = {
         name: formValues.name,
         date: formValues.date,
         time: formValues.time,
-        price: +formValues.price,
+        price: formValues.price,
         location: {
           address: formValues.location.address,
           city: formValues.location.city,
@@ -93,8 +92,6 @@ export class CreateEventComponent implements OnInit {
         .subscribe(event => {
           this.router.navigate(['Event', {id:event.id}]);
         })
-      
-      
     }
   }
   

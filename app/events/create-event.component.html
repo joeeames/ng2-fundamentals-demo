@@ -25,7 +25,7 @@
     <div class="form-group" [ngClass]="{ 'error' : !price.valid && price.dirty }">
       <label for="eventPrice">Event Price:</label>
       <em *ngIf="!price.valid && price.dirty">Required</em>
-      <input id="eventPrice" type="text" ngControl="price" class="form-control" placeholder="event price..." />
+      <input id="eventPrice" type="text" ngControl="price" type="number" class="form-control" placeholder="event price..." />
     </div>
     <fieldset ngControlGroup="location">
       <div class="form-group" [ngClass]="{ 'error' : !address.valid && address.dirty }">
