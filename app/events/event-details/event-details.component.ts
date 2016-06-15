@@ -30,7 +30,6 @@ export class EventDetailsComponent implements OnInit {
    }
 
    saveNewSession(session:Session) {
-     session.voters = []
      this.event.sessions.push(session)
      this.eventService.saveEvent(this.event)
      this.addMode = false

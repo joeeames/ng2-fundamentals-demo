@@ -23,6 +23,7 @@ export class CreateSessionComponent  {
   }
 
   saveSession(session:Session) {
+    session.voters = []
     this.saveNewSession.emit(session)
   }
 
