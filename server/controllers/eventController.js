@@ -44,24 +44,27 @@ exports.addVoter = function(req, res) {
       sessionId = parseInt(req.params.sessionId),
       eventId = parseInt(req.params.eventId);
 
-  var session = events.find(event => event.id === eventId)
-    .sessions.find(session => session.id === sessionId)
+  var event = events.find(event => event.id === eventId)
+  var session = event.sessions.find(session => session.id === sessionId)
     
   session.voters.push(voterId);
   res.send(session);
 }
 
-exports.createEvent = function(req, res) {
-  var newEvent = req.body;
-  console.log('new event', newEvent);
+exports.saveEvent = function(req, res) {
+  var event = req.body;
+  console.log('save event', event);
   
-  newEvent.id = nextId;
-  nextId++;
-  
-  newEvent.sessions = [];
-  events.push(newEvent);
-
-  res.send(newEvent);
+  if (event.id) {
+    var index = events.findIndex(e => e.id === event.id)
+    events[index] = event
+  } else {
+    event.id = nextId;
+    nextId++;
+    event.sessions = [];
+    events.push(event);
+  }
+  res.send(event);
   res.end(); 
 }
 

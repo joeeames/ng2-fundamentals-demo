@@ -23,7 +23,7 @@ export class EventService {
       }).catch(this.handleError);
   }
   
-  createEvent(eventData: any) {
+  saveEvent(eventData: any) {
     let headers = new Headers({ 'Content-Type': 'application/json'});
     let options = new RequestOptions({headers: headers });
     
@@ -33,10 +33,6 @@ export class EventService {
         return returnedData;
     }).catch(this.handleError);
     
-  }
-
-  saveEvent(eventData: any) {
-    this.createEvent(eventData)
   }
 
   searchSessions(searchTerm: string) {
