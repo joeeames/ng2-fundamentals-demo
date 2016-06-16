@@ -86,7 +86,7 @@ var events = [
     price: 950.00,
     imageUrl: '/app/assets/images/ng-nl.png',
     location: {
-      address: 'The NG-NL Convention Center & Scuba Shop',
+      address: 'The NG-NL Scuba Shop',
       city: 'Amsterdam',
       country: 'Netherlands'
     },
