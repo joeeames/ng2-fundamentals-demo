@@ -20,7 +20,7 @@
 *joe - make the title in the collapsible well a 2nd ng-content to show multi slot content projection 
 
 *jim - implement the add session ability
-jim - after creating an event, redirect to event details in session create mode
+*joe - after creating an event, redirect to event details in session create mode
 *jim - implement durations pipe
 
 joe - figure out deployment - use gulp template precacher? use now on mac?
