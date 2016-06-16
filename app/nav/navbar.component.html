@@ -22,10 +22,10 @@
           </ul>
         </li>
       </ul>
-      <div class="navbar-header navbar-right">
+      <div class="navbar-header navbar-right profile">
         <ul class="nav navbar-nav">
           <li>
-            <a class="navbar-brand" [routerLink]="['Profile']">Welcome {{auth.currentUser?.firstName}}</a>
+            <a [routerLink]="['Profile']">Welcome {{auth.currentUser?.firstName}}</a>
           </li>
         </ul>
       </div>
