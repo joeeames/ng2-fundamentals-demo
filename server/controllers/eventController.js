@@ -53,7 +53,6 @@ exports.addVoter = function(req, res) {
 
 exports.saveEvent = function(req, res) {
   var event = req.body;
-  console.log('save event', event);
   
   if (event.id) {
     var index = events.findIndex(e => e.id === event.id)
