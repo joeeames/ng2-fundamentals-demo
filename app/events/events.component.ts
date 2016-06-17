@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { EventsListComponent } from './events-list.component';
 import { EventDetailsComponent } from './event-details/index';
 import { CreateEventComponent } from './create-event.component';
-import { ROUTER_PROVIDERS, ROUTER_DIRECTIVES, RouteConfig } from '@angular/router-deprecated';
+import { ROUTER_DIRECTIVES, RouteConfig } from '@angular/router-deprecated';
 
 @Component({
   selector: 'events-root',

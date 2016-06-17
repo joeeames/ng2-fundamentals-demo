@@ -52,7 +52,7 @@
     <img *ngIf="imageUrl.value" [src]="imageUrl.value" />
     <br />
     <br />
-    <button type="submit" ng-disabled="newEventForm.$invalid" class="btn btn-primary">Save</button>
+    <button type="submit" [disabled]="!newEventForm.valid" class="btn btn-primary">Save</button>
     <button type="button" (click)="cancelEvent()" class="btn btn-default">Cancel</button>
   </form>
 </div>

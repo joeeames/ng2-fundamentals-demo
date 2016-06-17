@@ -8,7 +8,6 @@ function exactly2(control: any): {[key: string]: boolean} {
 }
 
 @Component({
-  moduleId: module.id,
   selector: 'create-event',
   templateUrl: "/app/events/create-event.component.html",
   styles: [`
