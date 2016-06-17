@@ -9,6 +9,12 @@ import { SimpleModalComponent } from '../common/simpleModal.component';
   moduleId: module.id,
   selector: 'nav-bar',
   templateUrl: `navbar.component.html`,
+  styles: [`
+    .nav.navbar-nav {font-size:15px} 
+    #searchForm {margin-right:100px; } 
+    .profile {font-size:15px}
+    @media (max-width: 1200px) {#searchForm {display:none}}
+    `],
   directives: [
     RouterLink,
     ModalTriggerDirective,
