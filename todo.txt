@@ -23,6 +23,8 @@
 *joe - after creating an event, redirect to event details in session create mode
 *jim - implement durations pipe
 
+split the saveEvent method into a createEvent and updateEvent method
+
 joe - figure out deployment - use gulp template precacher? use now on mac?
 use animation when elements get resorted due to voting
 
