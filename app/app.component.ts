@@ -2,7 +2,6 @@ import { Component, provide } from '@angular/core';
 import { ROUTER_PROVIDERS, ROUTER_DIRECTIVES, RouteConfig } from '@angular/router-deprecated';
 import { EventService, EventsComponent } from './events/index';
 import { NavBarComponent } from './nav/navbar.component';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import { AuthService } from './users/auth.service';
 import { ProfileComponent } from './users/profile.component';
@@ -37,7 +36,7 @@ declare let $: any;
 ])
 export class AppComponent {
   
-  constructor(private http: Http, private auth: AuthService) {}
+  constructor(private auth: AuthService) {}
   
   ngOnInit() {
     this.auth.loginDefaultUser();

@@ -1,4 +1,4 @@
-import { Component, Input, Inject } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { AuthService, User } from './auth.service';
 import { FORM_DIRECTIVES, FormBuilder, Control, ControlGroup, Validators } from '@angular/common';
 import { Router } from '@angular/router-deprecated';

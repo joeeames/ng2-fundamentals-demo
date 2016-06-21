@@ -8,7 +8,6 @@ function exactly2(control: any): {[key: string]: boolean} {
 }
 
 @Component({
-  moduleId: module.id,
   selector: 'create-event',
   templateUrl: "/app/events/create-event.component.html",
   styles: [`
@@ -74,12 +73,11 @@ export class CreateEventComponent implements OnInit {
   
   saveEvent(formValues) {
     if(this.newEventForm.valid) {
-
       var newEvent = {
         name: formValues.name,
         date: formValues.date,
         time: formValues.time,
-        price: +formValues.price,
+        price: formValues.price,
         location: {
           address: formValues.location.address,
           city: formValues.location.city,
@@ -87,14 +85,10 @@ export class CreateEventComponent implements OnInit {
         },
         imageUrl: formValues.imageUrl,
       }
-      console.log(formValues)
-      console.log(newEvent)
-      this.eventService.createEvent(newEvent)
+      this.eventService.saveEvent(newEvent)
         .subscribe(event => {
           this.router.navigate(['Event', {id:event.id}]);
         })
-      
-      
     }
   }
   

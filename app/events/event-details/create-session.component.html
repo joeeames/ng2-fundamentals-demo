@@ -1,5 +1,4 @@
-<h3>Create Session</h3>
-<hr>
+<div class="col-md-12"><h3>Create Session</h3></div>
 <div class="col-md-6">
   <form autocomplete="off" #newSessionForm="ngForm" (ngSubmit)="saveSession(newSessionForm.value)">
     <div class="form-group" [ngClass]="{ 'error' : !nameControl.valid && nameControl.dirty }" required>

@@ -19,10 +19,11 @@
 *joe - look at using provide() for wrapping toastr - provide(MyValue, {useValue: 41})
 *joe - make the title in the collapsible well a 2nd ng-content to show multi slot content projection 
 
-jim - implement the add session ability
-jim - after creating an event, redirect to event details in session create mode
-jim - implement date picker (or something else) - i don't think we need this
-jim - implement durations pipe
+*jim - implement the add session ability
+*joe - after creating an event, redirect to event details in session create mode
+*jim - implement durations pipe
+
+split the saveEvent method into a createEvent and updateEvent method
 
 do datekeys directive
 joe - figure out deployment - use gulp template precacher? use now on mac?
@@ -50,5 +51,6 @@ implement tests
 make active link work in navbar
 jim - authentication - JWT
 Add a profile (or user) section of the site with a top-level route
+jim - implement date picker (or something else) - i don't think we need this
 
 http://monorailcat.com/wp-content/uploads/2013/05/funny-cat-videos-part-5.jpg

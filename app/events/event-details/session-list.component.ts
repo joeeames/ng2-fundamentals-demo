@@ -1,5 +1,5 @@
 import { Component, OnChanges, Input } from '@angular/core';
-import { Session } from '../shared/index';
+import { Session, DurationPipe } from '../shared/index';
 import { UpvoteComponent } from './upvote.component';
 import { CollapsibleWellComponent } from '../../common/collapsible-well.component';
 import { AuthService } from '../../users/auth.service';
@@ -12,7 +12,8 @@ import { VoterService } from './voter.service';
   templateUrl: 'session-list.component.html',
   styles: ['collapsible-well h6 {margin-top:-5px; margin-bottom:10px }'],
   directives: [UpvoteComponent, CollapsibleWellComponent],
-  providers: [VoterService]
+  providers: [VoterService],
+  pipes: [DurationPipe]
 })
 export class SessionListComponent implements OnChanges {
   @Input() sessions: Session[];
@@ -20,7 +21,7 @@ export class SessionListComponent implements OnChanges {
   @Input() filterBy: string;
   @Input() eventId: number;
   visibleSessions: Session[] = [];
-  
+
   constructor(private auth: AuthService, 
       private voterService: VoterService) {  }
   
