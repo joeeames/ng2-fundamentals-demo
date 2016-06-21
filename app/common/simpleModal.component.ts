@@ -5,7 +5,6 @@ import { JQ_TOKEN } from './jQuery.service';
 // declare var $ : any;
 
 @Component({
-  moduleId: module.id,
   selector: 'simple-modal',
   template: `
   <div id="{{elementId}}" class="modal fade" tabindex="-1" role="dialog">

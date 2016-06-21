@@ -12,51 +12,49 @@ to app.component.ts
 and add the following comment to the constructor of the eventService
 // I am the server service
 
-
-
 */
 
-// import { Injectable } from '@angular/core';
-// import { Http, Response, Headers, RequestOptions } from '@angular/http';
-// import { Observable } from 'rxjs/Rx';
-// import { Event, Session } from './event.model'
+import { Injectable } from '@angular/core';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { Observable } from 'rxjs/Rx';
+import { Event, Session } from './event.model'
 
 
-// @Injectable()
-// export class ServerService {
+@Injectable()
+export class ServerService {
   
-//   constructor(private http: Http) {
-//     // I am the server service
-//   }
+  constructor(private http: Http) {
+    // I am the server service
+  }
   
-//   getEvents() {
-//     return this.http.get("/api")
-//       .map((response: Response) => {
-//         return <Event[]>response.json();
-//       }).catch(this.handleError);
-//   }
+  getEvents() {
+    return this.http.get("/api")
+      .map((response: Response) => {
+        return <Event[]>response.json();
+      }).catch(this.handleError);
+  }
   
-//   getEvent(id: number) {
-//     return this.http.get("/api" + id)
-//       .map((response: Response) => {
-//         return <Event>response.json();
-//       }).catch(this.handleError);
-//   }
+  getEvent(id: number) {
+    return this.http.get("/api" + id)
+      .map((response: Response) => {
+        return <Event>response.json();
+      }).catch(this.handleError);
+  }
   
-//   createEvent(eventData: any) {
-//     let headers = new Headers({ 'Content-Type': 'application/json'});
-//     let options = new RequestOptions({headers: headers });
+  createEvent(eventData: any) {
+    let headers = new Headers({ 'Content-Type': 'application/json'});
+    let options = new RequestOptions({headers: headers });
     
-//     var ret = this.http.post("/api", JSON.stringify(eventData), options);
-//     return ret.map((response: Response) => {
-//         var returnedData = response.json();
-//         return returnedData;
-//     }).catch(this.handleError);
+    var ret = this.http.post("/api", JSON.stringify(eventData), options);
+    return ret.map((response: Response) => {
+        var returnedData = response.json();
+        return returnedData;
+    }).catch(this.handleError);
     
-//   }
+  }
   
-//   private handleError(error: Response) {
-//     console.error(error);
-//     return Observable.throw(error.json().error || "Server Error");
-//   }
-// }
+  private handleError(error: Response) {
+    console.error(error);
+    return Observable.throw(error.json().error || "Server Error");
+  }
+}

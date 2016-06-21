@@ -7,7 +7,7 @@ import {RouterLink} from '@angular/router-deprecated';
   template:`
 <div class="well hoverwell thumbnail" [routerLink]="['Event', {id: event.id}]">
   <h2>{{event.name}}</h2>
-  <span style="font-weight: bold">Date:</span>
+  <span>Date:</span>
   <span>{{event.date}}</span><br>
   <span>Time:</span>
   <span>{{event.time}}</span><br>
